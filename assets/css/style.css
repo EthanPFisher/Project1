@@ -1,0 +1,31 @@
+i {
+    color: yellow;
+}
+.banner {
+    background-image: url("../images/background.jpeg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 50vh;
+    margin: 0;
+}
+
+.page-load{
+    height: 100vh !important;
+    padding: 0;
+}
+
+.banner-text {
+    background-color: rgb(255, 255, 255, 0.3)
+}
+
+::placeholder {
+    color: rgb(54, 31, 9);
+    font-weight: bold;
+}
+
+#search-button {
+    color: rgb(31, 17, 112);
+    background-color: lightblue;
+}
