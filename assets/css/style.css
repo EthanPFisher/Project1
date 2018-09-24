@@ -17,6 +17,10 @@ ul.dropdown-content.select-dropdown li span {
     font-weight: bold;
 }
 
+.logo {
+    color: white;
+}
+
 .banner {
     background-image: url("../images/background.jpeg");
     background-size: cover;
