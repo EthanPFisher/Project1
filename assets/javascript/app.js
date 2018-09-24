@@ -4,13 +4,7 @@ $("#search-button").on("click", function (){
     $(".page-footer").removeClass("page-load");
 })
 
-
-
-
-
-
 $(document).ready(function(){
     $('.datepicker').datepicker();
     $('select').formSelect();
-    $('.collapsible').collapsible();
   });

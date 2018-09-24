@@ -1,24 +1,29 @@
 body {
-    background-color: #FEFFCA;
-    color: #DC6C00;
+    background-color: rgb(205, 248, 248);
+    color: #00B6FF;
 }
 
 i {
-    color: #FCFBC0;
+    color: #B9DEF3;
 }
 
+
+
 input.select-dropdown.dropdown-trigger {
-    color: rgb(54, 31, 9);
+    color: #00FFFF;
+    text-shadow: 3px 3px 3px #000000;
     font-weight: bold;
 }
 
 ul.dropdown-content.select-dropdown li span {
-    color: rgb(54, 31, 9);
+    color: #2000AB;
     font-weight: bold;
 }
 
 .logo {
     color: white;
+    font-family: "Dosis", sans-serif;
+    font-weight: 800;
 }
 
 .banner {
@@ -36,32 +41,25 @@ ul.dropdown-content.select-dropdown li span {
     padding: 0;
 }
 
-.banner-text {
-    background-color: rgb(255, 255, 255, 0.3)
-}
-
 ::placeholder {
-    color: rgb(54, 31, 9);
+    color: #00FFFF;
     font-weight: bold;
+    text-shadow: 2px 2px 2px #000000;
 }
 
-#search-button {
-    color: rgb(54, 31, 9);
-    font-weight: bold;
-    background-color: #FFCB8F;
-}
+
 
 .results {
     margin-top: 2rem;
 }
 
-.collapsible-header {
-    color: black;
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
+    color: #039be5;
 }
 
-.collapsible-body {
-    background-color: #DC6C00;
-    color: white;
+.card:hover {
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 10px 40px 0 rgba(0, 0, 0, 0.19);
 }
 
 .page-load.results, .page-load.page-footer{
@@ -76,4 +74,15 @@ ul.dropdown-content.select-dropdown li span {
 
 .page-footer {
     background-color: black;
+    color: white;
+}
+
+#search-button {
+    color: #2000AB;
+    font-weight: bold;
+    background-color: #00B6FF;
+}
+
+#results-title {
+    font-family: "Dosis", sans-serif;
 }
