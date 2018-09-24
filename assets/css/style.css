@@ -1,18 +1,34 @@
-i {
-    color: yellow;
-}
-.banner {
-    background-image: url("../images/background.jpeg");
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 50vh;
-    margin: 0;
+body {
+    background-color: #FEFFCA;
+    color: #DC6C00;
 }
 
-.page-load{
+i {
+    color: #FCFBC0;
+}
+
+input.select-dropdown.dropdown-trigger {
+    color: rgb(54, 31, 9);
+    font-weight: bold;
+}
+
+ul.dropdown-content.select-dropdown li span {
+    color: rgb(54, 31, 9);
+    font-weight: bold;
+}
+
+.banner {
+    background-image: url("../images/background.jpeg");
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    padding: 50px 0;
+}
+
+.page-load.banner{
     height: 100vh !important;
+    background-size: cover;
+    margin: 0;
     padding: 0;
 }
 
@@ -26,6 +42,34 @@ i {
 }
 
 #search-button {
-    color: rgb(31, 17, 112);
-    background-color: lightblue;
+    color: rgb(54, 31, 9);
+    font-weight: bold;
+    background-color: #FFCB8F;
+}
+
+.results {
+    margin-top: 2rem;
+}
+
+.collapsible-header {
+    color: black;
+}
+
+.collapsible-body {
+    background-color: #DC6C00;
+    color: white;
+}
+
+.page-load.results, .page-load.page-footer{
+    display: none;
+}
+
+.map {
+    position: sticky;
+    top: 20px;
+    
+}
+
+.page-footer {
+    background-color: black;
 }
