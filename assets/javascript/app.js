@@ -7,4 +7,5 @@ $("#search-button").on("click", function (){
 $(document).ready(function(){
     $('.datepicker').datepicker();
     $('select').formSelect();
+    $('.modal').modal();
   });

@@ -2,30 +2,39 @@ body {
     background-color: rgb(205, 248, 248);
     color: #00B6FF;
 }
-
+/* Icon Styles */
 i {
     color: #B9DEF3;
 }
-
-
-
+li i {
+    color: white;
+}
+/* Navbar styles */
+nav {
+    background-color: #00B6FF;
+}
+nav ul{
+    display: flex;
+    justify-content: space-around !important;
+}
+/* Category Styles */
 input.select-dropdown.dropdown-trigger {
     color: #00FFFF;
     text-shadow: 3px 3px 3px #000000;
     font-weight: bold;
 }
-
+/* Category Dropdown Styles */
 ul.dropdown-content.select-dropdown li span {
     color: #2000AB;
     font-weight: bold;
 }
-
+/* Webpage Title */
 .logo {
     color: white;
     font-family: "Dosis", sans-serif;
     font-weight: 800;
 }
-
+/* Webpage Banner */
 .banner {
     background-image: url("../images/background.jpeg");
     background-size: cover;
@@ -33,56 +42,42 @@ ul.dropdown-content.select-dropdown li span {
     height: 50vh;
     padding: 50px 0;
 }
-
+/* Style for banner on page load to cover full view*/
 .page-load.banner{
     height: 100vh !important;
-    background-size: cover;
     margin: 0;
     padding: 0;
 }
-
+/* Form placeholder styles */
 ::placeholder {
     color: #00FFFF;
     font-weight: bold;
     text-shadow: 2px 2px 2px #000000;
 }
-
-
-
+/* Results styles */
 .results {
     margin-top: 2rem;
 }
-
+/* Styles the Google Maps button on results cards */
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
     color: #039be5;
 }
-
-.card:hover {
-    cursor: pointer;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 10px 40px 0 rgba(0, 0, 0, 0.19);
-}
-
+/* Hides results and footer display on load */
 .page-load.results, .page-load.page-footer{
     display: none;
 }
-
-.map {
-    position: sticky;
-    top: 20px;
-    
-}
-
+/* Footer Styles */
 .page-footer {
     background-color: black;
     color: white;
 }
-
-#search-button {
+/* Search/Directions Button Styles */
+#search-button, #get-directions-button {
     color: #2000AB;
     font-weight: bold;
     background-color: #00B6FF;
 }
-
+/* Results Title Style */
 #results-title {
     font-family: "Dosis", sans-serif;
 }

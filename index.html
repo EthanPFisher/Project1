@@ -68,7 +68,21 @@
                 <!-- Results Display -->
                 <div class="row">
                     <div class="col s12 m4">
-                        <div class="card">
+                        <div class="card hoverable">
+                            <div class="card-image">
+                                <img src="https://placeimg.com/600/600/any">
+                                <span class="card-title">Event Title</span>
+                            </div>
+                            <div class="card-content">
+                                <p>Event details such as a short intro or description of event</p>
+                            </div>
+                            <div class="card-action">
+                                <a class="modal-trigger map-button" href="#map-modal">Google Maps</a>
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="col s12 m4">
+                        <div class="card hoverable">
                             <div class="card-image">
                                 <img src="https://placeimg.com/600/600/any">
                                 <span class="card-title">Event Title</span>
@@ -82,7 +96,7 @@
                         </div>
                     </div>   
                     <div class="col s12 m4">
-                        <div class="card">
+                        <div class="card hoverable">
                             <div class="card-image">
                                 <img src="https://placeimg.com/600/600/any">
                                 <span class="card-title">Event Title</span>
@@ -95,20 +109,63 @@
                             </div>
                         </div>
                     </div>   
-                    <div class="col s12 m4">
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="https://placeimg.com/600/600/any">
-                                <span class="card-title">Event Title</span>
-                            </div>
-                            <div class="card-content">
-                                <p>Event details such as a short intro or description of event</p>
-                            </div>
-                            <div class="card-action">
-                                <a href="#">Google Maps</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Google Maps Modal -->
+    <div id="map-modal" class="modal">
+        <div class="modal-content">
+            <!-- Modal Content -->
+            <div class="row">
+                <div class="col s12 m6">
+                    <!-- Directions Nav Bar -->
+                    <nav>
+                        <div class="nav-wrapper">
+                            <ul>
+                                <li><a><i class="material-icons">directions_car</i></a></li>
+                                <li><a><i class="material-icons">directions_transit</i></a></li>
+                                <li><a><i class="material-icons">directions_bike</i></a></li>
+                                <li><a><i class="material-icons">directions_walk</i></a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <br>
+                    <!-- Directions Input form -->
+                    <div class="row valign-wrapper">
+                        <!-- My Location Icon -->
+                        <div class="col s1">
+                            <i class="material-icons">my_location</i>
+                        </div>
+                        <div class="col s11">
+                            <!-- Start From -->
+                            <div class="input-field">
+                                <label for="from-input">Start from: </label>
+                                <input placeholder=" " id="from-input" type="text" class="validate">   
                             </div>
                         </div>
-                    </div>   
+                    </div>
+                    <div class="row valign-wrapper">
+                        <!-- Location icon -->
+                        <div class="col s1">
+                            <i class="material-icons">location_on</i>
+                        </div>
+                        <div class="col s11">
+                            <!-- Destination -->
+                            <div class="input-field">
+                                <label for="to-input"> To:  </label>
+                                <input id="to-input" type="text" class="validate" value="Event Location" id="event-destination">   
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Get Directions Button -->
+                    <div class="row center-align">
+                        <a class="waves-effect waves-light btn" id="get-directions-button">Get Directions</a>
+                    </div>
+                </div>
+                <!-- Google Map -->
+                <div class="col s12 m6 center-align">
+                    <img src="https://i.stack.imgur.com/yEshb.gif">
                 </div>
             </div>
         </div>
@@ -131,7 +188,7 @@
         </div>
       </div>
       <div class="footer-copyright">
-        <div class="container">
+        <div class="container center-align">
         © 2018 Copyright Text
         </div>
       </div>
