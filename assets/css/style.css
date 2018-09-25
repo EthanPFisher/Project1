@@ -58,6 +58,9 @@ ul.dropdown-content.select-dropdown li span {
 .results {
     margin-top: 2rem;
 }
+.divider {
+    background-color: #00B6FF;
+}
 /* Styles the Google Maps button on results cards */
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
     color: #039be5;
@@ -73,7 +76,7 @@ ul.dropdown-content.select-dropdown li span {
 }
 /* Search/Directions Button Styles */
 #search-button, #get-directions-button {
-    color: #2000AB;
+    color: white;
     font-weight: bold;
     background-color: #00B6FF;
 }
