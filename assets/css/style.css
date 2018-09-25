@@ -21,8 +21,12 @@ nav ul{
 input#location-input, input#location-input:focus {
     color: white;
 }
+/* Date Input Styles */
 input#date-input{
     color: #00FFFF;
+}
+#date-icon:hover {
+    cursor: pointer;
 }
 .unstyled::-webkit-inner-spin-button,
 .unstyled::-webkit-calendar-picker-indicator {

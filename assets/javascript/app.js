@@ -1,3 +1,4 @@
+
 $("#search-button").on("click", function (){
     $(".banner").removeClass("page-load");
     $(".results").removeClass("page-load");
