@@ -74,6 +74,25 @@ ul.dropdown-content.select-dropdown li span {
     background-color: black;
     color: white;
 }
+
+.eventful-badge,
+.eventful-badge * {
+  margin: 0             !important;
+  padding: 0            !important;
+  border: 0             !important;
+  text-align: center    !important;
+  color: #CCC           !important;
+  font-family: Arial    !important;
+  text-decoration: none !important;
+}
+
+.eventful-large {
+  position: relative    !important;
+  width: 140px          !important;
+  font-size: 15px       !important;
+  line-height: 17px     !important;
+  font-weight: bold     !important;
+}
 /* Search/Directions Button Styles */
 #search-button, #get-directions-button {
     color: white;
