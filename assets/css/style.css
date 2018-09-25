@@ -17,15 +17,27 @@ nav ul{
     display: flex;
     justify-content: space-around !important;
 }
+/* Location Input styles */
+input#location-input, input#location-input:focus {
+    color: white;
+}
+input#date-input{
+    color: #00FFFF;
+}
+.unstyled::-webkit-inner-spin-button,
+.unstyled::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
 /* Category Styles */
-input.select-dropdown.dropdown-trigger {
+.category input.select-dropdown.dropdown-trigger {
     color: #00FFFF;
     text-shadow: 3px 3px 3px #000000;
     font-weight: bold;
 }
 /* Category Dropdown Styles */
 ul.dropdown-content.select-dropdown li span {
-    color: #2000AB;
+    color: #00B6FF;
     font-weight: bold;
 }
 /* Webpage Title */
