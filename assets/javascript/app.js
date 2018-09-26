@@ -6,6 +6,9 @@ $("#search-button").on("click", function (){
     if(!inputValidation("#date-input")){
         return;
     };
+    if(!inputValidation("#location-input")){
+        return;
+    }
 });
 
 $('#date-icon').on("click", function(event){
@@ -20,7 +23,7 @@ $("#date-input").on("click", function(){
 
 function inputValidation(data){
     var input = $(data);
-    // If input is not valid according to preset rules in HTML, then display popover
+    // If input is not valid according to preset rules in HTML, then display modal
     if(!input[0].checkValidity()){
         $("#input-validation-modal").modal("open");
         return false;
