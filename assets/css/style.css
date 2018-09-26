@@ -1,0 +1,121 @@
+body {
+    background-color: rgb(205, 248, 248);
+    color: #00B6FF;
+}
+/* Icon Styles */
+i {
+    color: #B9DEF3;
+}
+li i {
+    color: white;
+}
+/* Navbar styles */
+nav {
+    background-color: #00B6FF;
+}
+nav ul{
+    display: flex;
+    justify-content: space-around !important;
+}
+/* Location Input styles */
+input#location-input, input#location-input:focus {
+    color: white;
+}
+/* Date Input Styles */
+input#date-input{
+    color: #00FFFF;
+}
+#date-icon:hover {
+    cursor: pointer;
+}
+.unstyled::-webkit-inner-spin-button,
+.unstyled::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+/* Category Styles */
+.category input.select-dropdown.dropdown-trigger {
+    color: #00FFFF;
+    text-shadow: 3px 3px 3px #000000;
+    font-weight: bold;
+}
+/* Category Dropdown Styles */
+ul.dropdown-content.select-dropdown li span {
+    color: #00B6FF;
+    font-weight: bold;
+}
+/* Webpage Title */
+.logo {
+    color: white;
+    font-family: "Dosis", sans-serif;
+    font-weight: 800;
+}
+/* Webpage Banner */
+.banner {
+    background-image: url("../images/background.jpeg");
+    background-size: cover;
+    background-position: center;
+    height: 65vh;
+    padding: 50px 0;
+}
+/* Style for banner on page load to cover full view*/
+.page-load.banner{
+    height: 100vh !important;
+    margin: 0;
+    padding: 0;
+}
+/* Form placeholder styles */
+::placeholder {
+    color: #00FFFF;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px #000000;
+}
+/* Results styles */
+.results {
+    margin-top: 2rem;
+}
+.divider {
+    background-color: #00B6FF;
+}
+/* Styles the Google Maps button on results cards */
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
+    color: #039be5;
+}
+/* Hides results and footer display on load */
+.page-load.results, .page-load.page-footer{
+    display: none;
+}
+/* Footer Styles */
+.page-footer {
+    background-color: black;
+    color: white;
+}
+/* Eventful Badge Styles Copy/Pasted from their website */
+.eventful-badge,
+.eventful-badge * {
+  margin: 0             !important;
+  padding: 0            !important;
+  border: 0             !important;
+  text-align: center    !important;
+  color: #CCC           !important;
+  font-family: Arial    !important;
+  text-decoration: none !important;
+}
+
+.eventful-large {
+  position: relative    !important;
+  width: 140px          !important;
+  font-size: 15px       !important;
+  line-height: 17px     !important;
+  font-weight: bold     !important;
+}
+/* Search/Directions Button Styles */
+#search-button, #get-directions-button {
+    color: white;
+    font-weight: bold;
+    background-color: #00B6FF;
+}
+/* Results Title Style */
+#results-title {
+    font-family: "Dosis", sans-serif;
+}
