@@ -1,0 +1,240 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+ <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+       Open the console.
+        
+        <script src="app.js" async defer></script>
+        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    </body>
+=======
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,800" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body>
+    <!-- Banner -->
+    <div class="row valign-wrapper banner page-load">
+        <div class="col s12">
+            <div class="row">
+                <div class="col s12">
+                    <h1 class="center-align logo">Entertain Me</h1>
+                </div>
+            </div>
+            <!-- Search Form -->
+            <div class="row">
+                <!-- Location Input -->
+                <div class="input-field col s12 m3 offset-m2">
+                    <i class="material-icons prefix">location_searching</i>
+                    <input placeholder="Location" id="location-input" type="text" class="validate">
+                </div>
+                <!-- Date Input -->
+                <div class="input-field col s12 m2">
+                    <i class="material-icons prefix" id="date-icon">date_range</i>
+                    <input id="date-input" type="date" class="unstyled datepicker validate" pattern="\d{4}" maxlength="4"  required>
+                </div>
+                <!-- Category Input -->
+                <div class="input-field col s12 m3 category">
+                    <i class="material-icons prefix">add_circle_outline</i>
+                    <select id="category-input">
+                        <option value="" disabled selected><strong>Categories: </strong></option>
+                        <option value="all">All</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <!-- Search Button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button class="btn waves-effect waves-light" type="submit" id="search-button">
+                        <i class="material-icons left">search</i> Search
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Search Results -->
+    <div class="container page-load results">
+        <div class="row">
+            <div class="col s12 center-align">
+                <!-- Results Title -->
+                <div class="section" id="results-title">
+                    <h4>Events in Location on Date</h4>
+                </div>
+                <div class="divider"></div>
+                <br>
+                <!-- Results Display -->
+                <div class="row">
+                    <div class="col s12 m4">
+                        <div class="card sticky-action hoverable">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="https://placeimg.com/600/600/any">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator">Event Title <i class="material-icons right">more_vert</i></span>
+                            </div>
+                            <div class="card-action">
+                                <a class="modal-trigger map-button" href="#map-modal">Google Maps</a>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">Event Title<i class="material-icons right">close</i></span>
+                                <p>Event details with description of event</p>
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="col s12 m4">
+                        <div class="card hoverable">
+                            <div class="card-image">
+                                <img src="https://placeimg.com/600/600/any">
+                                <span class="card-title">Event Title</span>
+                            </div>
+                            <div class="card-content">
+                                <p>Event details such as a short intro or description of event</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#">Google Maps</a>
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="col s12 m4">
+                        <div class="card hoverable">
+                            <div class="card-image">
+                                <img src="https://placeimg.com/600/600/any">
+                                <span class="card-title">Event Title</span>
+                            </div>
+                            <div class="card-content">
+                                <p>Event details such as a short intro or description of event</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#">Google Maps</a>
+                            </div>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Google Maps Modal -->
+    <div id="map-modal" class="modal">
+        <div class="modal-content">
+            <!-- Modal Content -->
+            <div class="row">
+                <div class="col s12 m4">
+                    <!-- Directions Nav Bar -->
+                    <nav>
+                        <div class="nav-wrapper">
+                            <ul>
+                                <li><a><i class="material-icons">directions_car</i></a></li>
+                                <li><a><i class="material-icons">directions_transit</i></a></li>
+                                <li><a><i class="material-icons">directions_bike</i></a></li>
+                                <li><a><i class="material-icons">directions_walk</i></a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <br>
+                    <!-- Directions Input form -->
+                    <div class="row valign-wrapper">
+                        <!-- My Location Icon -->
+                        <div class="col s1">
+                            <i class="material-icons">my_location</i>
+                        </div>
+                        <div class="col s11">
+                            <!-- Start From -->
+                            <div class="input-field">
+                                <label for="from-input">Start from: </label>
+                                <input placeholder=" " id="from-input" type="text" class="validate">   
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row valign-wrapper">
+                        <!-- Location icon -->
+                        <div class="col s1">
+                            <i class="material-icons">location_on</i>
+                        </div>
+                        <div class="col s11">
+                            <!-- Destination -->
+                            <div class="input-field">
+                                <label for="to-input"> To:  </label>
+                                <input id="to-input" type="text" class="validate" value="Event Location" id="event-destination">   
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Get Directions Button -->
+                    <div class="row center-align">
+                        <a class="waves-effect waves-light btn" id="get-directions-button">Get Directions</a>
+                    </div>
+                </div>
+                <!-- Google Map -->
+                <div class="col s12 m8 center-align">
+                    <iframe
+                        width="450"
+                        height="450"
+                        frameborder="0" style="border: 0"
+                        src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY
+                        &q=Space+Needle,Seattle+WA">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="page-footer page-load">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5>Footer Content</h5>
+            <!-- Eventful Badge Copy/pasted from their website -->
+            <div class="eventful-badge eventful-large">
+                <img src="http://api.eventful.com/images/powered/eventful_139x44.gif" alt="Local Events, Concerts, Tickets">
+                <p><a href="http://eventful.com/">Events</a> by Eventful</p>
+            </div>
+            <p class="text-lighten-4">You can use rows and columns here to organize your footecontent.</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5>Links</h5>
+            <ul>
+              <li><a href="#!">Link 1</a></li>
+              <li><a href="#!">Link 2</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container center-align">
+        © 2018 Copyright Text
+        </div>
+      </div>
+    </footer>
+    
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/javascript/app.js"></script>
+  </body>
+>>>>>>> 6f3e753797c94797e888ac57a654624e5dd998a6
+</html>

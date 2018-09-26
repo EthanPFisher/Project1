@@ -34,9 +34,13 @@ var directionsRequest = {
 directionsService.route(directionsRequest, function (response, status) {
     if (status == google.maps.DirectionsStatus.OK) {                    
     //do work with response data
-    console.log(response);
+    console.log(response.routes[0].legs[0].steps);
     }
     else{
         //Error has occured
     }
 })
+
+//to get steps of route
+
+// response.routes[0].legs[0].steps
