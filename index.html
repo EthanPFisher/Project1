@@ -27,23 +27,25 @@
             <div class="row">
                 <!-- Location Input -->
                 <div class="input-field col s12 m3 offset-m2">
-                    <i class="material-icons prefix">location_searching</i>
+                    <i class="material-icons prefix" id="location-input-icon">location_searching</i>
                     <input placeholder="Location" id="location-input" type="text" class="validate" required>
                 </div>
                 <!-- Date Input -->
                 <div class="input-field col s12 m2">
                     <i class="material-icons prefix" id="date-icon">date_range</i>
-                    <input id="date-input" type="date" class="unstyled datepicker validate" pattern="\d{4}" maxlength="4" required>
+                    <input id="date-input" type="date" class="unstyled datepicker validate" max="2020-12-31" required>
                 </div>
                 <!-- Category Input -->
                 <div class="input-field col s12 m3 category">
                     <i class="material-icons prefix">add_circle_outline</i>
                     <select id="category-input">
-                        <option value="" disabled selected><strong>Categories: </strong></option>
-                        <option value="all">All</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
+                        <option value="" disabled selected><strong>Categories</strong></option>
+                        <option value="">All</option>
+                        <option value="music">Music</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="food">Food</option>
+                        <option value="sports">Sports</option>
+                        <option value="technology">Technology</option>
                     </select>
                 </div>
             </div>
