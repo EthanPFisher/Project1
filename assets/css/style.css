@@ -19,11 +19,15 @@ nav ul{
 }
 /* Location Input styles */
 input#location-input, input#location-input:focus {
-    color: white;
+    color: #00FFFF;
+    text-shadow: 3px 3px 3px #000000;
+    font-weight: bold;
 }
 /* Date Input Styles */
 input#date-input{
     color: #00FFFF;
+    text-shadow: 3px 3px 3px #000000;
+    font-weight: bold;
 }
 #date-icon:hover {
     cursor: pointer;
