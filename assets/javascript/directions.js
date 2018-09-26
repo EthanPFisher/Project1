@@ -29,17 +29,28 @@ var directionsRequest = {
     origin: origin,
     destination: destination,
     travelMode: google.maps.DirectionsTravelMode.DRIVING,
-    unitSystem: google.maps.UnitSystem.METRIC
+    unitSystem: google.maps.UnitSystem.IMPERIAL
 };
 directionsService.route(directionsRequest, function (response, status) {
     if (status == google.maps.DirectionsStatus.OK) {                    
     //do work with response data
-    console.log(response.routes[0].legs[0].steps);
+    
+    var legs = response.routes[0].legs[0]
+
+        for (var i = 0; i < legs.steps.length; i++ ){
+            console.log(legs.steps[i].instructions + 'for ' + legs.steps[i].distance.text);
+
+            var direction = legs.steps[i].instructions + 'for ' + legs.steps[i].distance.text
+            
+            var newDiv = $("<div>")
+
+        }
     }
-    else{
+    else {
         //Error has occured
     }
 })
+
 
 //to get steps of route
 
