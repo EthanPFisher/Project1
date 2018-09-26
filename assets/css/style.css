@@ -109,13 +109,24 @@ ul.dropdown-content.select-dropdown li span {
   line-height: 17px     !important;
   font-weight: bold     !important;
 }
+
 /* Search/Directions Button Styles */
-#search-button, #get-directions-button {
+#search-button, #get-directions-button, .modal-close {
     color: white;
     font-weight: bold;
     background-color: #00B6FF;
 }
+
+.modal-close:hover {
+    color: #00B6FF;
+    background-color: white;
+}
 /* Results Title Style */
 #results-title {
     font-family: "Dosis", sans-serif;
+}
+
+#input-validation-modal{
+    width: 400px;
+    height: 250px;
 }
