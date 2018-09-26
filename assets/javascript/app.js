@@ -3,6 +3,9 @@ $("#search-button").on("click", function (){
     $(".banner").removeClass("page-load");
     $(".results").removeClass("page-load");
     $(".page-footer").removeClass("page-load");
+    if(!inputValidation("#date-input")){
+        return;
+    };
 });
 
 $('#date-icon').on("click", function(event){
@@ -15,9 +18,21 @@ $("#date-input").on("click", function(){
     $(".datepicker").datepicker("destroy");
 })
 
+function inputValidation(data){
+    var input = $(data);
+    // If input is not valid according to preset rules in HTML, then display popover
+    if(!input[0].checkValidity()){
+        $("#input-validation-modal").modal("open");
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
 function preventPastDates(){
     var todaysDate = new Date(); // Gets today's date
-    // Max date attribute is in "YYYY-MM-DD".  Need to format today's date accordingly
+    // Min date attribute is in "YYYY-MM-DD".  Need to format today's date accordingly
     var year = todaysDate.getFullYear();                        // YYYY
     var month = ("0" + (todaysDate.getMonth() + 1)).slice(-2);  // MM
     var day = ("0" + todaysDate.getDate()).slice(-2);           // DD
@@ -27,8 +42,8 @@ function preventPastDates(){
 }
 
 $(document).ready(function(){
-    $('.datepicker').datepicker({"format": "yyyy-mm-dd"});
     preventPastDates();
+    $('.datepicker').datepicker({"format": "yyyy-mm-dd"});
     $('select').formSelect();
     $('.modal').modal();
   });

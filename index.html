@@ -28,12 +28,12 @@
                 <!-- Location Input -->
                 <div class="input-field col s12 m3 offset-m2">
                     <i class="material-icons prefix">location_searching</i>
-                    <input placeholder="Location" id="location-input" type="text" class="validate">
+                    <input placeholder="Location" id="location-input" type="text" class="validate" required>
                 </div>
                 <!-- Date Input -->
                 <div class="input-field col s12 m2">
                     <i class="material-icons prefix" id="date-icon">date_range</i>
-                    <input id="date-input" type="date" class="unstyled datepicker validate" pattern="\d{4}" maxlength="4"  required>
+                    <input id="date-input" type="date" class="unstyled datepicker validate" pattern="\d{4}" maxlength="4" required>
                 </div>
                 <!-- Category Input -->
                 <div class="input-field col s12 m3 category">
@@ -180,6 +180,16 @@
                     </iframe>
                 </div>
             </div>
+        </div>
+    </div>
+    <!-- Input Validation Modal -->
+    <div id="input-validation-modal" class="modal">
+        <div class="modal-content">
+            <h4>Invalid Input!</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
         </div>
     </div>
     <!-- Footer -->
