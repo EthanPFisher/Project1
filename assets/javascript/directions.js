@@ -17,23 +17,32 @@
 $(document).ready(function(){
     var directionsService = new google.maps.DirectionsService();
 
-
+    // declare apiKey variable
     apiKey = "AIzaSyB5lSGcPQkieKi9JEwoRUb2IqZ656nfPl0"
     
+    // declare origin variable
     origin = "seattle";
     
+    // declare destination variable
     destination = "bellingham";
     
+    // googleDirections queryURL to call
     queryURL = "https://maps.googleapis.com/maps/api/directions/json?origin=" + encodeURIComponent(origin) + "&destination=" + encodeURIComponent(destination) + "&key=" + apiKey
     
     console.log(queryURL);
     
     var directionsRequest = {
+        // set origin
         origin: origin,
+        // set destination
         destination: destination,
+        // travelMode parameter (driving, walking, biking)
         travelMode: google.maps.DirectionsTravelMode.DRIVING,
+        // units parameter (METRIC, IMPERIAL)
         unitSystem: google.maps.UnitSystem.IMPERIAL
     };
+
+    // get step by step directions between origin and destination
     directionsService.route(directionsRequest, function (response, status) {
         if (status == google.maps.DirectionsStatus.OK) {                    
         //do work with response data
