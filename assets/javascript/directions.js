@@ -20,12 +20,13 @@ $(document).ready(function(){
     // declare apiKey variable
     apiKey = "AIzaSyB5lSGcPQkieKi9JEwoRUb2IqZ656nfPl0"
     
-    // declare origin variable
-    origin = "seattle";
-    
-    // declare destination variable
-    destination = "bellingham";
-    
+    $("#get-directions-button").on('click', function(){
+        // store origin from input
+        var origin = $("#from-input").val();
+        // store destination from input
+        var destination = $("#event-destination").val();
+   
+        
     // googleDirections queryURL to call
     queryURL = "https://maps.googleapis.com/maps/api/directions/json?origin=" + encodeURIComponent(origin) + "&destination=" + encodeURIComponent(destination) + "&key=" + apiKey
     
@@ -48,12 +49,16 @@ $(document).ready(function(){
         //do work with response data
         
         var legs = response.routes[0].legs[0]
-    
+            // for loop to iterate through array of all instructions in directions
             for (var i = 0; i < legs.steps.length; i++ ){
+                //log the list of directions to the console
                 console.log(legs.steps[i].instructions + 'for ' + legs.steps[i].distance.text);
+                //store each step of directions in variable
                 var directions = legs.steps[i].instructions + 'for ' + legs.steps[i].distance.text
                 var newDiv = $("<p>")
+                //add each set of 'directions' to newDiv
                 newDiv.text(directions);
+                //append to 'get directions' button
                 $("#directions-list").append(newDiv)
             }
         }
@@ -61,6 +66,8 @@ $(document).ready(function(){
             //Error has occured
         }
     })
+})
+
 
     
     //to get steps of route
