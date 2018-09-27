@@ -39,11 +39,10 @@ directionsService.route(directionsRequest, function (response, status) {
 
         for (var i = 0; i < legs.steps.length; i++ ){
             console.log(legs.steps[i].instructions + 'for ' + legs.steps[i].distance.text);
-
-            var direction = legs.steps[i].instructions + 'for ' + legs.steps[i].distance.text
-            
-            var newDiv = $("<div>")
-
+            var directions = legs.steps[i].instructions + 'for ' + legs.steps[i].distance.text
+            var newDiv = $("<p>")
+            newDiv.text(directions);
+            $("#get-directions-button").append(newDiv)
         }
     }
     else {
