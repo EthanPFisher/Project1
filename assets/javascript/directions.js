@@ -20,7 +20,8 @@ $(document).ready(function(){
     // declare apiKey variable
     apiKey = "AIzaSyB5lSGcPQkieKi9JEwoRUb2IqZ656nfPl0"
     
-    $("#get-directions-button").on('click', function(){
+    $("#get-directions-button").on('click', function(event){
+        event.preventDefault;
         // store origin from input
         var origin = $("#from-input").val();
         console.log(origin)
@@ -60,9 +61,9 @@ $(document).ready(function(){
             // for loop to iterate through array of all instructions in directions
             for (var i = 0; i < legs.steps.length; i++ ){
                 //log the list of directions to the console
-                console.log(legs.steps[i].instructions + 'for ' + legs.steps[i].distance.text);
+                console.log(legs.steps[i].instructions + ' for ' + legs.steps[i].distance.text);
                 //store each step of directions in variable
-                var directions = legs.steps[i].instructions + 'for ' + legs.steps[i].distance.text
+                var directions = legs.steps[i].instructions + ' for ' + legs.steps[i].distance.text
                 var newDiv = $("<p>")
                 //add each set of 'directions' to newDiv
                 newDiv.html(directions);

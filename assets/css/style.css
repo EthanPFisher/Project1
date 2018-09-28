@@ -131,6 +131,11 @@ ul.dropdown-content.select-dropdown li span {
 }
 
 #input-validation-modal{
-    width: 400px;
+    width: 450px;
     height: 250px;
+}
+
+#map-modal {
+    width: 1000px;
+    height: 1000px;
 }
