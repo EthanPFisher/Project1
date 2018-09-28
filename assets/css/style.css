@@ -81,6 +81,9 @@ ul.dropdown-content.select-dropdown li span {
 .divider {
     background-color: #00B6FF;
 }
+.card-content {
+    height: 150px;
+}
 /* Styles the Google Maps button on results cards */
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
     color: #039be5;
