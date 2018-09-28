@@ -78,6 +78,9 @@ ul.dropdown-content.select-dropdown li span {
 .results {
     margin-top: 2rem;
 }
+.hide {
+    display: none;
+}
 .divider {
     background-color: #00B6FF;
 }
@@ -87,6 +90,9 @@ ul.dropdown-content.select-dropdown li span {
 /* Styles the Google Maps button on results cards */
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
     color: #039be5;
+}
+.event-details {
+    text-align: left;
 }
 /* Hides results and footer display on load */
 .page-load.results, .page-load.page-footer{

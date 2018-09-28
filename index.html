@@ -49,8 +49,7 @@
                 <div class="input-field col s12 m3 category">
                     <i class="material-icons prefix">add_circle_outline</i>
                     <select id="category-input">
-                        <option value="" disabled selected><strong>Categories</strong></option>
-                        <option value="">All</option>
+                        <option value="" disabled selected><strong>Categories</strong> (optional)</option>
                         <option value="music">Music</option>
                         <option value="comedy">Comedy</option>
                         <option value="food">Food</option>
@@ -66,6 +65,21 @@
                     <button class="btn waves-effect waves-light" type="submit" id="search-button">
                         <i class="material-icons left">search</i> Search
                     </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 center-align">
+                    <div class="preloader-wrapper active hide" id="search-loader">
+                        <div class="spinner-layer spinner-red-only">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div><div class="gap-patch">
+                                <div class="circle"></div>
+                            </div><div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

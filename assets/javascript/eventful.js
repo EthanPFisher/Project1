@@ -15,13 +15,13 @@ function generateCards(imgSRC, title, eventAddress, venueName, startTime, eventW
     newCardAction.append(newLink);
     var newCardReveal = $("<div class='card-reveal'>");
     var revealTitle = $("<span class='card-title grey-text text-darken-4'>");
-    revealTitle.html("<u>" + title + "</u>" + "<i class='material-icons right'>close</i>");
-    var eventDetails = $("<div>").text("Event Details: ");
+    revealTitle.html("<u>Event Details: </u><i class='material-icons right'>close</i>");
+    var eventDetails = $("<div class='event-details'>");
     var eventVenue = $("<span>").text("Venue: " + venueName);
     var eventTime = $("<span>").text("Start Time: " + startTime);
     var url = $("<a>").attr("href", eventWebsite).html("<u>Eventful</u>");
     var eventURL = $("<span>").text("For more information please visit: ");
-    eventDetails.append(eventVenue, "<br>", eventTime, "<br>", eventURL, url);
+    eventDetails.append("<br>", eventVenue, "<br>", eventTime, "<br>", eventURL, url);
     newCardReveal.append(revealTitle,"<br>", eventDetails);
     newCard.append(newCardImage, newCardContent, newCardAction, newCardReveal);
     newResult.append(newCard);
@@ -38,6 +38,13 @@ $(document).ready(function () {
 
     $('#search-button').on('click', function () {
         $("#results-display").empty();
+        if(!inputValidation("#date-input")){
+            return;
+        };
+        if(!inputValidation("#location-input")){
+            return;
+        }
+        $("#search-loader").removeClass("hide");
         if ($('#location-input').val() != '') {
             location = '&location=' + $('#location-input').val().trim()
         }
@@ -61,9 +68,12 @@ $(document).ready(function () {
             },
             dataType: 'jsonp',
         }).then(function (res) {
-
+            $("#search-loader").addClass("hide");
             var events = res.events.event
-            console.log(res)
+            // console.log(res)
+            $(".banner").removeClass("page-load");
+            $(".results").removeClass("page-load");
+            $(".page-footer").removeClass("page-load");
 
             for (i = 0; i < events.length; i++) {
 
