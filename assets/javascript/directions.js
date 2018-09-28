@@ -14,6 +14,8 @@
 
 var directionsService = new google.maps.DirectionsService;
 var directionsDisplay = new google.maps.DirectionsRenderer;
+var origin;
+var destination;
 
 
 // declare apiKey variable
@@ -45,16 +47,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay){
     })
 }
 
-$("#google-form").on('submit', function(event){
-    event.preventDefault;
-    // store origin from input
-    var origin = $("#from-input").val();
-    console.log(origin)
-    // store destination from input
-     var destination = $("#to-input").val();
-     console.log(destination)
-    //googleDirections queryURL to call
-    function displayDirections(){
+//googleDirections queryURL to call
+function displayDirections(){
     directionsQueryURL = "https://maps.googleapis.com/maps/api/directions/json?libraries=places&origin=" + encodeURIComponent(origin) + "&destination=" + encodeURIComponent(destination) + "&key=" + apiKey
 
     var directionsRequest = {
@@ -107,23 +101,12 @@ $("#google-form").on('submit', function(event){
         }
     })
 }
-})
 
-
-$(document).ready(function(){
-    
-    $("#get-directions-button").on('click',function(){
-        origin = $("#from-input").val();
-        destination = $("#to-input").val();
-        initMap();
-        displayDirections();
-        calculateAndDisplayRoute(directionsService, directionsDisplay);
-    })
-})
-    
-
-
-    
-    //to get steps of route
-    
-    // response.routes[0].legs[0].steps
+$("#google-form").on('submit', function(event){
+    event.preventDefault;
+    origin = $("#from-input").val();
+    destination = $("#to-input").val();
+    displayDirections();
+    initMap();
+    calculateAndDisplayRoute(directionsService, directionsDisplay);
+})    
