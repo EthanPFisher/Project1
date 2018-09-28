@@ -21,7 +21,7 @@ function generateCards(imgSRC, title, eventAddress, venueName, startTime, eventW
     var eventTime = $("<span>").text("Start Time: " + startTime);
     var url = $("<a>").attr("href", eventWebsite).html("<u>Eventful</u>");
     var eventURL = $("<span>").text("For more information please visit: ");
-    eventDetails.append("<br>", eventVenue, "<br>", eventTime, "<br>", eventURL, url);
+    eventDetails.append("<br>", eventVenue, "<br><br>", eventTime, "<br><br>", eventURL, url);
     newCardReveal.append(revealTitle,"<br>", eventDetails);
     newCard.append(newCardImage, newCardContent, newCardAction, newCardReveal);
     newResult.append(newCard);

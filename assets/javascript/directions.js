@@ -102,10 +102,13 @@ function displayDirections(){
     })
 }
 
+$(".map-button").on("click", function(){
+    destination = $(this).attr("data-address");
+})
+
 $("#google-form").on('submit', function(event){
     event.preventDefault;
     origin = $("#from-input").val();
-    destination = $("#to-input").val();
     displayDirections();
     initMap();
     calculateAndDisplayRoute(directionsService, directionsDisplay);
