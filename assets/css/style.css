@@ -19,11 +19,15 @@ nav ul{
 }
 /* Location Input styles */
 input#location-input, input#location-input:focus {
-    color: white;
+    color: #00FFFF;
+    text-shadow: 3px 3px 3px #000000;
+    font-weight: bold;
 }
 /* Date Input Styles */
 input#date-input{
     color: #00FFFF;
+    text-shadow: 3px 3px 3px #000000;
+    font-weight: bold;
 }
 #date-icon:hover {
     cursor: pointer;
@@ -109,13 +113,24 @@ ul.dropdown-content.select-dropdown li span {
   line-height: 17px     !important;
   font-weight: bold     !important;
 }
+
 /* Search/Directions Button Styles */
-#search-button, #get-directions-button {
+#search-button, #get-directions-button, .modal-close {
     color: white;
     font-weight: bold;
     background-color: #00B6FF;
 }
+
+.modal-close:hover {
+    color: #00B6FF;
+    background-color: white;
+}
 /* Results Title Style */
 #results-title {
     font-family: "Dosis", sans-serif;
+}
+
+#input-validation-modal{
+    width: 400px;
+    height: 250px;
 }
