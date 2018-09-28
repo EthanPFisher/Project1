@@ -12,36 +12,51 @@
 //Use DirectionsRenderer to render rather than doing it ourselves
 
 
+var directionsService = new google.maps.DirectionsService;
+var directionsDisplay = new google.maps.DirectionsRenderer;
 
 
-$(document).ready(function(){
-    
-    var directionsService = new google.maps.DirectionsService();
+// declare apiKey variable
+apiKey = "AIzaSyB5lSGcPQkieKi9JEwoRUb2IqZ656nfPl0"
+// googleMapsEmbed queryURL to call
+mapsQueryURL = "https://www.google.com/maps/embed/v1/place?key=AIzaSyB5lSGcPQkieKi9JEwoRUb2IqZ656nfPl0&q=" + origin
 
-    // declare apiKey variable
-    apiKey = "AIzaSyB5lSGcPQkieKi9JEwoRUb2IqZ656nfPl0"
-    
-    $("#google-form").on('submit', function(event){
-        event.preventDefault;
-        // store origin from input
-        var origin = $("#from-input").val();
-        console.log(origin)
-        // store destination from input
-        var destination = $("#to-input").val();
-        console.log(destination)
-        // origin = "seattle";
-        // destination = 'portland';
-   
-        
+function initMap(){
+
+    var map = new google.maps.Map(document.getElementById("map-embed"),{
+        zoom: 13,
+        center: {lat: 41.85, lng: -87.65}
+    });
+    directionsDisplay.setMap(map);
+}
+
+function calculateAndDisplayRoute(directionsService, directionsDisplay){
+
+    directionsService.route({
+        origin: origin,
+        destination: destination,
+        travelMode: 'DRIVING'
+    }, function (response, status){
+        if (status === 'OK'){
+            directionsDisplay.setDirections(response);
+        } else{
+            alert('Directions request failed due to ' + status);
+        }
+    })
+}
+
+$("#google-form").on('submit', function(event){
+    event.preventDefault;
+    // store origin from input
+    var origin = $("#from-input").val();
+    console.log(origin)
+    // store destination from input
+     var destination = $("#to-input").val();
+     console.log(destination)
     //googleDirections queryURL to call
-    directionsQueryURL = "https://maps.googleapis.com/maps/api/directions/json?origin=" + encodeURIComponent(origin) + "&destination=" + encodeURIComponent(destination) + "&key=" + apiKey
-    
-    // googleMapsEmd
-    // mapsEmbedQueryURL = "https://www.google.com/maps/embed/v1/place?&q="+eventLocation+"&key="+apiKey
-    // console.log(mapsEmbedQueryURL);
+    function displayDirections(){
+    directionsQueryURL = "https://maps.googleapis.com/maps/api/directions/json?libraries=places&origin=" + encodeURIComponent(origin) + "&destination=" + encodeURIComponent(destination) + "&key=" + apiKey
 
-    console.log(directionsQueryURL);
-    
     var directionsRequest = {
         // set origin
         origin: origin,
@@ -91,11 +106,23 @@ $(document).ready(function(){
             //Error has occured
         }
     })
-})
+}
+
+
+$(document).ready(function(){
+    
+    $("#get-directions-button").on('click',function(){
+        origin = $("#from-input").val();
+        destination = $("#to-input").val();
+        initMap();
+        displayDirections();
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+    })
+});
+    
 
 
     
     //to get steps of route
     
     // response.routes[0].legs[0].steps
-})
