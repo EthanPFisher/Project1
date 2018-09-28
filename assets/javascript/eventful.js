@@ -74,7 +74,8 @@ $(document).ready(function () {
             $(".banner").removeClass("page-load");
             $(".results").removeClass("page-load");
             $(".page-footer").removeClass("page-load");
-
+            $("#title-location").text($('#location-input').val().trim());
+            $("#title-date").text($("#date-input").val());
             for (i = 0; i < events.length; i++) {
 
                 var title = events[i].title
