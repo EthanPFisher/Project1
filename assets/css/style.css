@@ -137,5 +137,8 @@ ul.dropdown-content.select-dropdown li span {
 
 #map-modal {
     width: 1000px;
-    height: 1000px;
+}
+
+#directions-list {
+    color: black;
 }

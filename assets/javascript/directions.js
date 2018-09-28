@@ -15,12 +15,13 @@
 
 
 $(document).ready(function(){
+    
     var directionsService = new google.maps.DirectionsService();
 
     // declare apiKey variable
     apiKey = "AIzaSyB5lSGcPQkieKi9JEwoRUb2IqZ656nfPl0"
     
-    $("#get-directions-button").on('click', function(event){
+    $("#google-form").on('submit', function(event){
         event.preventDefault;
         // store origin from input
         var origin = $("#from-input").val();
@@ -54,22 +55,37 @@ $(document).ready(function(){
 
     // get step by step directions between origin and destination
     directionsService.route(directionsRequest, function (response, status) {
-        if (status == google.maps.DirectionsStatus.OK) {                    
-        //do work with response data
-        
-        var legs = response.routes[0].legs[0]
+        if (status == google.maps.DirectionsStatus.OK) {  
+            $("#directions-list").empty();          
+            //do work with response data
+            var legs = response.routes[0].legs[0]
+            var table = $("<table class='striped'>");
+            var tableHead = $("<thead>");
+            var row = $("<tr>");
+            var th = $("<th>");
+            var newTh = $("<th>").attr("id", "totals");
+            var tableBody = $("<tbody>");
+            row.append(th, newTh);
+            tableHead.append(row);
+            table.append(tableHead,tableBody);
             // for loop to iterate through array of all instructions in directions
             for (var i = 0; i < legs.steps.length; i++ ){
+                
                 //log the list of directions to the console
                 console.log(legs.steps[i].instructions + ' for ' + legs.steps[i].distance.text);
                 //store each step of directions in variable
                 var directions = legs.steps[i].instructions + ' for ' + legs.steps[i].distance.text
-                var newDiv = $("<p>")
+                var newDiv = $("<td>")
                 //add each set of 'directions' to newDiv
                 newDiv.html(directions);
+                var stepNumber = $("<td>").text((i+1) + ".)")
+                var newRow = $("<tr>")
+                newRow.append(stepNumber, newDiv);
                 //append to 'get directions' button
-                $("#directions-list").append(newDiv)
+                tableBody.append(newRow);
             }
+            newTh.html("<u>Total Distance: </u>" + legs.distance.text + "<br>" + "<u>Total Travel Time: </u>" + legs.duration.text);
+            $("#directions-list").append(table);
         }
         else {
             //Error has occured
