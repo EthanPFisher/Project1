@@ -23,14 +23,22 @@ $(document).ready(function(){
     $("#get-directions-button").on('click', function(){
         // store origin from input
         var origin = $("#from-input").val();
+        console.log(origin)
         // store destination from input
-        var destination = $("#event-destination").val();
+        var destination = $("#to-input").val();
+        console.log(destination)
+        // origin = "seattle";
+        // destination = 'portland';
    
         
-    // googleDirections queryURL to call
-    queryURL = "https://maps.googleapis.com/maps/api/directions/json?origin=" + encodeURIComponent(origin) + "&destination=" + encodeURIComponent(destination) + "&key=" + apiKey
+    //googleDirections queryURL to call
+    directionsQueryURL = "https://maps.googleapis.com/maps/api/directions/json?origin=" + encodeURIComponent(origin) + "&destination=" + encodeURIComponent(destination) + "&key=" + apiKey
     
-    console.log(queryURL);
+    // googleMapsEmd
+    // mapsEmbedQueryURL = "https://www.google.com/maps/embed/v1/place?&q="+eventLocation+"&key="+apiKey
+    // console.log(mapsEmbedQueryURL);
+
+    console.log(directionsQueryURL);
     
     var directionsRequest = {
         // set origin
@@ -57,7 +65,7 @@ $(document).ready(function(){
                 var directions = legs.steps[i].instructions + 'for ' + legs.steps[i].distance.text
                 var newDiv = $("<p>")
                 //add each set of 'directions' to newDiv
-                newDiv.text(directions);
+                newDiv.html(directions);
                 //append to 'get directions' button
                 $("#directions-list").append(newDiv)
             }
