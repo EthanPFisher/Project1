@@ -134,3 +134,8 @@ ul.dropdown-content.select-dropdown li span {
     width: 400px;
     height: 250px;
 }
+
+#map-embed{
+    height: 450px;
+    width: 450px;
+}
