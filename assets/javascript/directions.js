@@ -102,8 +102,10 @@ function displayDirections(){
     })
 }
 
-$(".map-button").on("click", function(){
+$(document).on("click",".map-button", function(){
     destination = $(this).attr("data-address");
+    $("#to-input").val(destination);
+    console.log(destination);
 })
 
 $("#google-form").on('submit', function(event){
