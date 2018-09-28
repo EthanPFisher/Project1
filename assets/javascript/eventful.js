@@ -1,4 +1,23 @@
 
+function generateCards(imgSRC, title){
+    var newResult = $("<div class='col s12 m4'>");
+    var newCard = $("<div class='card sticky-action hoverable'>");
+    var newCardImage = $("<div class='card-image waves-effect waves-block waves-light'>");
+    var newImage = $("<img class='activator'>").attr("src", imgSRC);
+    newCardImage.append(newImage);
+    var newCardContent = $("<div class='card-content'>");
+    var cardTitle = $("<span class='card-title activator'>");
+    cardTitle.html(title + "<i class='material-icons right'>more_vert</i>");
+    newCardContent.append(cardTitle);
+    var newCardAction = $("<div class='card-action'>");
+    var newLink = $("<a>").attr({"href": "#map-modal", "class": "modal-trigger map-button"});
+    newLink.text("Google Maps");
+    newCardAction.append(newLink);
+    var newCardReveal = $("<div class='card-reveal'>");
+    var revealTitle = $("<span class='card-title grey-text text-darken-4'>");
+    revealTitle.html(title + "<i class='material-icons right'>close</i>");
+}
+
 $(document).ready(function () {
 
     var key = '9SPHrSHsCzcbp2ck'
