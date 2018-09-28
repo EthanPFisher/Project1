@@ -107,6 +107,7 @@ $("#google-form").on('submit', function(event){
         }
     })
 }
+})
 
 
 $(document).ready(function(){
@@ -118,7 +119,7 @@ $(document).ready(function(){
         displayDirections();
         calculateAndDisplayRoute(directionsService, directionsDisplay);
     })
-});
+})
     
 
 

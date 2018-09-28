@@ -16,6 +16,7 @@ function generateCards(imgSRC, title){
     var newCardReveal = $("<div class='card-reveal'>");
     var revealTitle = $("<span class='card-title grey-text text-darken-4'>");
     revealTitle.html(title + "<i class='material-icons right'>close</i>");
+    var eventDetails = $("<div>")
 }
 
 $(document).ready(function () {
