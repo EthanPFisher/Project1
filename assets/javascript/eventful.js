@@ -5,7 +5,6 @@ $(document).ready(function () {
     var location = ''
     var date = ''
     var category = ''
-    var keyword = ''
 
     $('#search-button').on('click', function () {
         if ($('#location-input').val() != '') {
@@ -13,17 +12,15 @@ $(document).ready(function () {
         }
         if ($('#date-input').val() != '') {
             var dateEl = $('#date-input').val().split("-")
-            // console.log(dateEl)
             date = '&date=' + dateEl[0] + dateEl[1] + dateEl[2] + '00-' + dateEl[0] + dateEl[1] + dateEl[2] + '00'
-            // console.log(date)
         }
         if ($('#category-input').val() != null) {
-            console.log($('#category-input').val())
+            category = '&category=' + $('#category-input').val()
         }
 
-        var queryUrl = 'http://api.eventful.com/json/events/search?app_key=' + key + keywords + location + category + date
-        console.log(queryUrl)
-        
+        var queryUrl = 'http://api.eventful.com/json/events/search?app_key=' + key + location + category + date
+
+        // console.log(queryUrl)
 
         $.ajax({
             url: queryUrl,
@@ -33,7 +30,28 @@ $(document).ready(function () {
             },
             dataType: 'jsonp',
         }).then(function (res) {
-            console.log(res)
+
+            var events = res.events.event
+            // console.log(events)
+
+            for (i = 0; i < events.length; i++) {
+
+                var title = events[i].title
+                var venue = events[i].venue_name
+                var address = events[i].venue_address
+                var time = events[i].start_time
+                var url = events[i].url
+
+                // console.log(title)
+                // console.log(venue)
+                // console.log(address)
+                // console.log(time)
+                // console.log(url)
+
+                
+
+            }
+
         })
 
     })
