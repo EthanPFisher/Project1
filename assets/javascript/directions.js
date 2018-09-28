@@ -106,6 +106,7 @@ $(document).on("click",".map-button", function(){
     destination = $(this).attr("data-address");
     $("#to-input").val(destination);
     console.log(destination);
+    $("#directions-list").empty();
 })
 
 $("#google-form").on('submit', function(event){
