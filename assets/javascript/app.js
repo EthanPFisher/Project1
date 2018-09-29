@@ -1,16 +1,4 @@
 
-$("#search-button").on("click", function (){
-    $(".banner").removeClass("page-load");
-    $(".results").removeClass("page-load");
-    $(".page-footer").removeClass("page-load");
-    if(!inputValidation("#date-input")){
-        return;
-    };
-    if(!inputValidation("#location-input")){
-        return;
-    }
-});
-
 $('#date-icon').on("click", function(event){
     event.stopPropagation();
     $('.datepicker').datepicker({"format": "yyyy-mm-dd"});

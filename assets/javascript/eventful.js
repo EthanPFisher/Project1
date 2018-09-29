@@ -1,12 +1,50 @@
 
+function generateCards(imgSRC, title, eventAddress, venueName, startTime, eventWebsite){
+    var newResult = $("<div class='col s12 m4'>");
+    var newCard = $("<div class='card sticky-action hoverable'>");
+    var newCardImage = $("<div class='card-image waves-effect waves-block waves-light'>");
+    var newImage = $("<img class='activator'>").attr("src", imgSRC);
+    newCardImage.append(newImage);
+    var newCardContent = $("<div class='card-content'>");
+    var cardTitle = $("<span class='card-title activator'>");
+    cardTitle.html(title + "<i class='material-icons right'>more_vert</i>");
+    newCardContent.append(cardTitle);
+    var newCardAction = $("<div class='card-action'>");
+    var newLink = $("<a>").attr({"href": "#map-modal", "class": "modal-trigger map-button", "data-address": eventAddress });
+    newLink.text("Google Maps");
+    newCardAction.append(newLink);
+    var newCardReveal = $("<div class='card-reveal'>");
+    var revealTitle = $("<span class='card-title grey-text text-darken-4'>");
+    revealTitle.html("<u>Event Details: </u><i class='material-icons right'>close</i>");
+    var eventDetails = $("<div class='event-details'>");
+    var eventVenue = $("<span>").text("Venue: " + venueName);
+    var eventTime = $("<span>").text("Start Time: " + startTime);
+    var url = $("<a>").attr("href", eventWebsite).html("<u>Eventful</u>");
+    var eventURL = $("<span>").text("For more information please visit: ");
+    eventDetails.append("<br>", eventVenue, "<br><br>", eventTime, "<br><br>", eventURL, url);
+    newCardReveal.append(revealTitle,"<br>", eventDetails);
+    newCard.append(newCardImage, newCardContent, newCardAction, newCardReveal);
+    newResult.append(newCard);
+    $("#results-display").append(newResult);
+}
+
 $(document).ready(function () {
 
     var key = '9SPHrSHsCzcbp2ck'
     var location = ''
     var date = ''
     var category = ''
+    var imgSRC = ""
 
     $('#search-button').on('click', function () {
+        $("#results-display").empty();
+        if(!inputValidation("#date-input")){
+            return;
+        };
+        if(!inputValidation("#location-input")){
+            return;
+        }
+        $("#search-loader").removeClass("hide");
         if ($('#location-input').val() != '') {
             location = '&location=' + $('#location-input').val().trim()
         }
@@ -17,8 +55,9 @@ $(document).ready(function () {
         if ($('#category-input').val() != null) {
             category = '&category=' + $('#category-input').val()
         }
-
-        var queryUrl = 'http://api.eventful.com/json/events/search?app_key=' + key + location + category + date
+        $("#title-location").text($('#location-input').val().trim());
+        $("#title-date").text($("#date-input").val());
+        var queryUrl = 'http://api.eventful.com/json/events/search?sort_order=popularity&image_sizes=large&page_size=9&app_key=' + key + location + category + date
 
         // console.log(queryUrl)
 
@@ -30,10 +69,12 @@ $(document).ready(function () {
             },
             dataType: 'jsonp',
         }).then(function (res) {
-
+            $("#search-loader").addClass("hide");
             var events = res.events.event
-            // console.log(events)
-
+            console.log(res)
+            $(".banner").removeClass("page-load");
+            $(".results").removeClass("page-load");
+            $(".page-footer").removeClass("page-load");
             for (i = 0; i < events.length; i++) {
 
                 var title = events[i].title
@@ -41,7 +82,14 @@ $(document).ready(function () {
                 var address = events[i].venue_address
                 var time = events[i].start_time
                 var url = events[i].url
-
+                // if event doesn't have image, use placeholder img
+                if(events[i].image === null){
+                    imgSRC = "https://source.unsplash.com/random/500x500";
+                }
+                else{
+                    imgSRC = events[i].image.large.url;
+                }
+                generateCards(imgSRC, title, address, venue, time, url);
                 // console.log(title)
                 // console.log(venue)
                 // console.log(address)

@@ -12,10 +12,14 @@ li i {
 /* Navbar styles */
 nav {
     background-color: #00B6FF;
+    height: 50px;
 }
 nav ul{
     display: flex;
     justify-content: space-around !important;
+}
+nav i.material-icons {
+    height: 50px !important;
 }
 /* Location Input styles */
 input#location-input, input#location-input:focus {
@@ -78,12 +82,32 @@ ul.dropdown-content.select-dropdown li span {
 .results {
     margin-top: 2rem;
 }
+/* Used to hide loading icon */
+.hide {
+    display: none;
+}
 .divider {
     background-color: #00B6FF;
+}
+/* Card Styles */
+.card {
+    height: 500px;
+}
+.card-image {
+    height: 295px;
+}
+.card-content {
+    height: 150px;
+}
+.card-action {
+    height: 55px;
 }
 /* Styles the Google Maps button on results cards */
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
     color: #039be5;
+}
+.event-details {
+    text-align: left;
 }
 /* Hides results and footer display on load */
 .page-load.results, .page-load.page-footer{
@@ -145,4 +169,6 @@ ul.dropdown-content.select-dropdown li span {
 
 #directions-list {
     color: black;
+    overflow: scroll;
+    height: 200px;
 }
