@@ -28,11 +28,6 @@ function generateCards(imgSRC, title, eventAddress, venueName, startTime, eventW
     $("#results-display").append(newResult);
 }
 
-function formatTime(dateTime) {
-    var date = dateTime.split(' ')[0]
-    var time = dateTime.split(' ')[1]
-}
-
 $(document).ready(function () {
 
     var key = '9SPHrSHsCzcbp2ck'
@@ -61,7 +56,8 @@ $(document).ready(function () {
             category = '&category=' + $('#category-input').val()
         }
         $("#title-location").text($('#location-input').val().trim());
-        $("#title-date").text($("#date-input").val());
+        $("#title-date").text(moment($("#date-input").val(), "YYYY-MM-DD").format("L"));
+
         var queryUrl = 'http://api.eventful.com/json/events/search?sort_order=popularity&image_sizes=large&page_size=9&app_key=' + key + location + category + date
 
         // console.log(queryUrl)
@@ -76,7 +72,7 @@ $(document).ready(function () {
         }).then(function (res) {
             $("#search-loader").addClass("hide");
             var events = res.events.event
-            console.log(res)
+            // console.log(res)
             $(".banner").removeClass("page-load");
             $(".results").removeClass("page-load");
             $(".page-footer").removeClass("page-load");
@@ -85,7 +81,7 @@ $(document).ready(function () {
                 var title = events[i].title
                 var venue = events[i].venue_name
                 var address = events[i].venue_address
-                var time = formatTime(events[i].start_time)
+                var time = moment(events[i].start_time, 'YYYY-MM-DD hh:mm:ss').format("MMMM Do YYYY, h:mm a")
                 var url = events[i].url
                 // if event doesn't have image, use placeholder img
                 if(events[i].image === null){
@@ -95,14 +91,6 @@ $(document).ready(function () {
                     imgSRC = events[i].image.large.url;
                 }
                 generateCards(imgSRC, title, address, venue, time, url);
-                // console.log(title)
-                // console.log(venue)
-                // console.log(address)
-                // console.log(time)
-                // console.log(url)
-
-                
-
             }
 
         })
