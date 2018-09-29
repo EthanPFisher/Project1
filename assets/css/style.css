@@ -98,6 +98,7 @@ ul.dropdown-content.select-dropdown li span {
 }
 .card-content {
     height: 150px;
+    overflow:scroll;
 }
 .card-action {
     height: 55px;
@@ -108,6 +109,9 @@ ul.dropdown-content.select-dropdown li span {
 }
 .event-details {
     text-align: left;
+}
+.disabled {
+    pointer-events: none;
 }
 /* Hides results and footer display on load */
 .page-load.results, .page-load.page-footer{
