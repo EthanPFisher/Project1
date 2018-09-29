@@ -23,13 +23,17 @@ apiKey = "AIzaSyB5lSGcPQkieKi9JEwoRUb2IqZ656nfPl0"
 // googleMapsEmbed queryURL to call
 mapsQueryURL = "https://www.google.com/maps/embed/v1/place?key=AIzaSyB5lSGcPQkieKi9JEwoRUb2IqZ656nfPl0&q=" + origin
 
-function initMap(){
+function initMap(lat, long){
 
     var map = new google.maps.Map(document.getElementById("map-embed"),{
         zoom: 13,
-        center: {lat: 41.85, lng: -87.65}
+        center: {lat: lat, lng: long}
     });
-    directionsDisplay.setMap(map);
+    var marker = new google.maps.Marker({
+        position: {lat: lat, lng: long},
+        map: map
+    })
+    directionsDisplay.setMap(map, marker);
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay){
@@ -106,15 +110,19 @@ function displayDirections(){
 $(document).on("click",".map-button", function(){
     // Clicking google maps button grabs the event address
     destination = $(this).attr("data-address");
+    var thisLat = parseFloat($(this).attr("data-lat"));
+    var thisLong = parseFloat($(this).attr("data-long"));
     $("#to-input").val(destination);
     // Empty's div so directions don't double up
     $("#directions-list").empty();
+    console.log(thisLat);
+    console.log(thisLong);
+    initMap(thisLat, thisLong);
 })
 
 $("#google-form").on('submit', function(event){
     event.preventDefault;
     origin = $("#from-input").val();
     displayDirections();
-    initMap();
     calculateAndDisplayRoute(directionsService, directionsDisplay);
 })    
