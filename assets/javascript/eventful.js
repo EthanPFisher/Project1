@@ -1,3 +1,34 @@
+var events;
+var title;
+var venue;
+var address;
+var time;
+var url;
+var lat;
+var long;
+var numberOfPages;
+var currentPage;
+
+function getResults(result, startIndex, endIndex){
+    for (i = startIndex; i < endIndex ; i++) {
+
+        title = result[i].title
+        venue = result[i].venue_name
+        address = result[i].venue_address + "," + result[i].city_name
+        time = result[i].start_time
+        url = result[i].url
+        lat = result[i].latitude
+        long = result[i].longitude
+        // if event doesn't have image, use placeholder img
+        if(result[i].image === null){
+            imgSRC = "https://source.unsplash.com/random/500x500";
+        }
+        else{
+            imgSRC = result[i].image.large.url;
+        }
+        generateCards(imgSRC, title, address, lat, long, venue, time, url);
+    }
+}
 
 function generateCards(imgSRC, title, eventAddress, eventLat, eventLong, venueName, startTime, eventWebsite){
     var newResult = $("<div class='col s12 m4'>");
@@ -34,6 +65,74 @@ function generateCards(imgSRC, title, eventAddress, eventLat, eventLong, venueNa
     $("#results-display").append(newResult);
 }
 
+function paginationDisplay(numberOfResults){
+    if(numberOfResults === 0){
+        return;
+    }
+    else{
+        $(".pagination").removeClass("hide");
+        var page = $("<li class='active pages'>")
+        var pageNumber = $("<a>").attr({"class":"page-number", "href": "#results-title", "data-number": "1"}).text("1")
+        page.append(pageNumber);
+        page.insertBefore($("#pagination-end"));
+        if(numberOfResults <= 9){
+            $("#pagination-end").addClass("disabled").removeClass("waves-effect");
+        }
+        else{
+            numberOfPages = (Math.ceil(numberOfResults/9)) - 1;
+            for(var j = 0; j < numberOfPages; j++){
+                page=$("<li class='waves-effect pages'>")
+                pageNumber = $("<a>").attr({"class": "page-number", "href": "#results-title", "data-number": j+2}).text(j+2);
+                page.append(pageNumber);
+                page.insertBefore($("#pagination-end"));
+            }
+        }
+    }
+}
+
+function displayPage(clicked){
+    currentPage = clicked; 
+    var newEndIndex = currentPage * 9;
+    var newStartIndex = newEndIndex - 9; 
+    if(currentPage != 1){
+        $("#pagination-start").removeClass("disabled").addClass("waves-effect");
+    }
+    else{
+        if(!$("#pagination-start").hasClass("disabled")){
+            $("#pagination-start").addClass("disabled");
+        }
+    }
+    if(currentPage == (numberOfPages+1)){
+        $("#pagination-end").addClass("disabled").removeClass("waves-effect");
+    }
+    else if(currentPage != (numberOfPages+1) && $("#pagination-end").hasClass("disabled")){
+        $("#pagination-end").removeClass("disabled").addClass("waves-effect");
+    }
+    $("#results-display").empty();
+    getResults(events, newStartIndex, newEndIndex);
+}
+
+$(document).on("click", ".page-number", function(){
+    $(".pages").removeClass("active");
+    $(this).parents("li").addClass("active");
+    var thisPage = parseInt($(this).attr("data-number"));
+    displayPage(thisPage);
+})
+
+$("#pagination-start").on("click", function(){
+    $(".pages").removeClass("active");
+    var previousPage = currentPage - 1;
+    $(".page-number[data-number=" + previousPage + "]").parents("li").addClass("active");
+    displayPage(previousPage);
+})
+
+$("#pagination-end").on("click", function(){
+    $(".pages").removeClass("active");
+    var nextPage = currentPage + 1;
+    $(".page-number[data-number=" + nextPage + "]").parents("li").addClass("active");
+    displayPage(nextPage);
+})
+
 $(document).ready(function () {
 
     var key = '9SPHrSHsCzcbp2ck'
@@ -44,6 +143,7 @@ $(document).ready(function () {
 
     $('#search-button').on('click', function () {
         $("#results-display").empty();
+        $(".pages").remove();
         if(!inputValidation("#date-input")){
             return;
         };
@@ -66,6 +166,7 @@ $(document).ready(function () {
 
         var queryUrl = 'http://api.eventful.com/json/events/search?sort_order=popularity&image_sizes=large&page_size=9&app_key=' + key + location + category + date
 
+
         // console.log(queryUrl)
 
         $.ajax({
@@ -86,9 +187,14 @@ $(document).ready(function () {
             // console.log(res)
             var events = res.events.event
 
+            currentPage = 1;
             $(".banner").removeClass("page-load");
             $(".results").removeClass("page-load");
             $(".page-footer").removeClass("page-load");
+            $("#pagination-start").addClass("disabled").removeClass("waves-effect");
+            $("#pagination-end").addClass("waves-effect").removeClass("disabled");
+            paginationDisplay(events.length);
+            getResults(events, 0, 9);
             for (i = 0; i < events.length; i++) {
 
                 var title = events[i].title
@@ -107,6 +213,7 @@ $(document).ready(function () {
                 }
                 generateCards(imgSRC, title, address, lat, long, venue, time, url);
             }
+
 
         })
 
