@@ -119,7 +119,7 @@ $(document).on("click",".map-button", function(){
 })
 
 $("#google-form").on('submit', function(event){
-    event.preventDefault;
+    event.preventDefault();
     origin = $("#from-input").val();
     displayDirections();
     calculateAndDisplayRoute(directionsService, directionsDisplay);
