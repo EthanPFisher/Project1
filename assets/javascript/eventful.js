@@ -1,5 +1,5 @@
 
-function generateCards(imgSRC, title, eventAddress, venueName, startTime, eventWebsite){
+function generateCards(imgSRC, title, eventAddress, eventLat, eventLong, venueName, startTime, eventWebsite){
     var newResult = $("<div class='col s12 m4'>");
     var newCard = $("<div class='card sticky-action hoverable'>");
     var newCardImage = $("<div class='card-image waves-effect waves-block waves-light'>");
@@ -10,7 +10,13 @@ function generateCards(imgSRC, title, eventAddress, venueName, startTime, eventW
     cardTitle.html(title + "<i class='material-icons right'>more_vert</i>");
     newCardContent.append(cardTitle);
     var newCardAction = $("<div class='card-action'>");
-    var newLink = $("<a>").attr({"href": "#map-modal", "class": "modal-trigger map-button", "data-address": eventAddress });
+    var newLink = $("<a>").attr({
+        "href": "#map-modal", 
+        "class": "modal-trigger map-button", 
+        "data-address": eventAddress,
+        "data-lat": eventLat,
+        "data-long": eventLong
+    });
     newLink.text("Google Maps");
     newCardAction.append(newLink);
     var newCardReveal = $("<div class='card-reveal'>");
@@ -82,6 +88,8 @@ $(document).ready(function () {
                 var address = events[i].venue_address + "," + events[i].city_name
                 var time = events[i].start_time
                 var url = events[i].url
+                var lat = events[i].latitude
+                var long = events[i].longitude
                 // if event doesn't have image, use placeholder img
                 if(events[i].image === null){
                     imgSRC = "https://source.unsplash.com/random/500x500";
@@ -89,7 +97,7 @@ $(document).ready(function () {
                 else{
                     imgSRC = events[i].image.large.url;
                 }
-                generateCards(imgSRC, title, address, venue, time, url);
+                generateCards(imgSRC, title, address, lat, long, venue, time, url);
                 // console.log(title)
                 // console.log(venue)
                 // console.log(address)
