@@ -79,7 +79,7 @@ $(document).ready(function () {
 
                 var title = events[i].title
                 var venue = events[i].venue_name
-                var address = events[i].venue_address
+                var address = events[i].venue_address + "," + events[i].city_name
                 var time = events[i].start_time
                 var url = events[i].url
                 // if event doesn't have image, use placeholder img
