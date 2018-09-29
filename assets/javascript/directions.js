@@ -37,7 +37,6 @@ function initMap(lat, long){
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay){
-
     directionsService.route({
         origin: origin,
         destination: destination,
@@ -54,7 +53,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay){
 //googleDirections queryURL to call
 function displayDirections(){
     directionsQueryURL = "https://maps.googleapis.com/maps/api/directions/json?libraries=places&origin=" + encodeURIComponent(origin) + "&destination=" + encodeURIComponent(destination) + "&key=" + apiKey
-
     var directionsRequest = {
         // set origin
         origin: origin,
