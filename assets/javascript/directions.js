@@ -68,6 +68,7 @@ function displayDirections(){
             $("#directions-list").empty();          
             //do work with response data
             var legs = response.routes[0].legs[0]
+            // dynamically creating table for directions infor
             var table = $("<table class='striped'>");
             var tableHead = $("<thead>");
             var row = $("<tr>");
@@ -90,10 +91,10 @@ function displayDirections(){
                 var stepNumber = $("<td>").text((i+1) + ".)")
                 var newRow = $("<tr>")
                 newRow.append(stepNumber, newDiv);
-                //append to 'get directions' button
                 tableBody.append(newRow);
             }
             newTh.html("<u>Total Distance: </u>" + legs.distance.text + "<br>" + "<u>Total Travel Time: </u>" + legs.duration.text);
+            // Append table to DOM
             $("#directions-list").append(table);
         }
         else {
@@ -103,9 +104,10 @@ function displayDirections(){
 }
 
 $(document).on("click",".map-button", function(){
+    // Clicking google maps button grabs the event address
     destination = $(this).attr("data-address");
     $("#to-input").val(destination);
-    console.log(destination);
+    // Empty's div so directions don't double up
     $("#directions-list").empty();
 })
 

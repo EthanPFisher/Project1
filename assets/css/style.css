@@ -12,10 +12,14 @@ li i {
 /* Navbar styles */
 nav {
     background-color: #00B6FF;
+    height: 50px;
 }
 nav ul{
     display: flex;
     justify-content: space-around !important;
+}
+nav i.material-icons {
+    height: 50px !important;
 }
 /* Location Input styles */
 input#location-input, input#location-input:focus {
@@ -78,12 +82,14 @@ ul.dropdown-content.select-dropdown li span {
 .results {
     margin-top: 2rem;
 }
+/* Used to hide loading icon */
 .hide {
     display: none;
 }
 .divider {
     background-color: #00B6FF;
 }
+/* Card Styles */
 .card-content {
     height: 150px;
 }
@@ -154,4 +160,6 @@ ul.dropdown-content.select-dropdown li span {
 
 #directions-list {
     color: black;
+    overflow: scroll;
+    height: 200px;
 }

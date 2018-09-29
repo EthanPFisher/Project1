@@ -34,7 +34,7 @@ $(document).ready(function () {
     var location = ''
     var date = ''
     var category = ''
-    var imgSRC = "https://placeimg.com/640/480/any"
+    var imgSRC = ""
 
     $('#search-button').on('click', function () {
         $("#results-display").empty();
@@ -56,7 +56,7 @@ $(document).ready(function () {
             category = '&category=' + $('#category-input').val()
         }
 
-        var queryUrl = 'http://api.eventful.com/json/events/search?page_size=9&app_key=' + key + location + category + date
+        var queryUrl = 'http://api.eventful.com/json/events/search?sort_order=popularity&image_sizes=large&page_size=9&app_key=' + key + location + category + date
 
         // console.log(queryUrl)
 
@@ -70,7 +70,7 @@ $(document).ready(function () {
         }).then(function (res) {
             $("#search-loader").addClass("hide");
             var events = res.events.event
-            // console.log(res)
+            console.log(res)
             $(".banner").removeClass("page-load");
             $(".results").removeClass("page-load");
             $(".page-footer").removeClass("page-load");
@@ -83,6 +83,13 @@ $(document).ready(function () {
                 var address = events[i].venue_address
                 var time = events[i].start_time
                 var url = events[i].url
+                // if event doesn't have image, use placeholder img
+                if(events[i].image === null){
+                    imgSRC = "https://source.unsplash.com/random/500x500";
+                }
+                else{
+                    imgSRC = events[i].image.large.url;
+                }
                 generateCards(imgSRC, title, address, venue, time, url);
                 // console.log(title)
                 // console.log(venue)
