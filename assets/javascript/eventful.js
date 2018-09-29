@@ -76,8 +76,13 @@ $(document).ready(function () {
             dataType: 'jsonp',
         }).then(function (res) {
             $("#search-loader").addClass("hide");
-            var events = res.events.event
+            if(res.events === null){
+                console.log("no events");
+                $("#no-event-modal").modal("open");
+                return;
+            }
             console.log(res)
+            var events = res.events.event
             $(".banner").removeClass("page-load");
             $(".results").removeClass("page-load");
             $(".page-footer").removeClass("page-load");

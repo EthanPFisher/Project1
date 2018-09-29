@@ -124,6 +124,5 @@ $("#google-form").on('submit', function(event){
     event.preventDefault;
     origin = $("#from-input").val();
     displayDirections();
-    
     calculateAndDisplayRoute(directionsService, directionsDisplay);
 })    
