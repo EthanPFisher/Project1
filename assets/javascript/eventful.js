@@ -162,8 +162,10 @@ $(document).ready(function () {
             category = '&category=' + $('#category-input').val()
         }
         $("#title-location").text($('#location-input').val().trim());
-        $("#title-date").text($("#date-input").val());
-        var queryUrl = 'http://api.eventful.com/json/events/search?sort_order=popularity&image_sizes=large&page_size=81&app_key=' + key + location + category + date
+        $("#title-date").text(moment($("#date-input").val(), "YYYY-MM-DD").format("L"));
+
+        var queryUrl = 'http://api.eventful.com/json/events/search?sort_order=popularity&image_sizes=large&page_size=9&app_key=' + key + location + category + date
+
 
         // console.log(queryUrl)
 
@@ -176,13 +178,15 @@ $(document).ready(function () {
             dataType: 'jsonp',
         }).then(function (res) {
             $("#search-loader").addClass("hide");
+
             if(res.events === null){
                 console.log("no events");
                 $("#no-event-modal").modal("open");
                 return;
             }
-            console.log(res)
-            events = res.events.event;
+            // console.log(res)
+            var events = res.events.event
+
             currentPage = 1;
             $(".banner").removeClass("page-load");
             $(".results").removeClass("page-load");
@@ -191,6 +195,26 @@ $(document).ready(function () {
             $("#pagination-end").addClass("waves-effect").removeClass("disabled");
             paginationDisplay(events.length);
             getResults(events, 0, 9);
+            for (i = 0; i < events.length; i++) {
+
+                var title = events[i].title
+                var venue = events[i].venue_name
+                var time = moment(events[i].start_time, 'YYYY-MM-DD hh:mm:ss').format("MMMM Do YYYY, h:mm a")
+                var address = events[i].venue_address + "," + events[i].city_name
+                var url = events[i].url
+                var lat = events[i].latitude
+                var long = events[i].longitude
+                // if event doesn't have image, use placeholder img
+                if(events[i].image === null){
+                    imgSRC = "https://source.unsplash.com/random/500x500";
+                }
+                else{
+                    imgSRC = events[i].image.large.url;
+                }
+                generateCards(imgSRC, title, address, lat, long, venue, time, url);
+            }
+
+
         })
 
     })
