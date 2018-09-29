@@ -90,8 +90,17 @@ ul.dropdown-content.select-dropdown li span {
     background-color: #00B6FF;
 }
 /* Card Styles */
+.card {
+    height: 500px;
+}
+.card-image {
+    height: 295px;
+}
 .card-content {
     height: 150px;
+}
+.card-action {
+    height: 55px;
 }
 /* Styles the Google Maps button on results cards */
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){

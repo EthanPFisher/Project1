@@ -55,7 +55,8 @@ $(document).ready(function () {
         if ($('#category-input').val() != null) {
             category = '&category=' + $('#category-input').val()
         }
-
+        $("#title-location").text($('#location-input').val().trim());
+        $("#title-date").text($("#date-input").val());
         var queryUrl = 'http://api.eventful.com/json/events/search?sort_order=popularity&image_sizes=large&page_size=9&app_key=' + key + location + category + date
 
         // console.log(queryUrl)
@@ -74,8 +75,6 @@ $(document).ready(function () {
             $(".banner").removeClass("page-load");
             $(".results").removeClass("page-load");
             $(".page-footer").removeClass("page-load");
-            $("#title-location").text($('#location-input').val().trim());
-            $("#title-date").text($("#date-input").val());
             for (i = 0; i < events.length; i++) {
 
                 var title = events[i].title
