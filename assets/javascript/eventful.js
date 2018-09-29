@@ -1,5 +1,5 @@
 
-function generateCards(imgSRC, title, eventAddress, venueName, startTime, eventWebsite){
+function generateCards(imgSRC, title, eventAddress, eventLat, eventLong, venueName, startTime, eventWebsite){
     var newResult = $("<div class='col s12 m4'>");
     var newCard = $("<div class='card sticky-action hoverable'>");
     var newCardImage = $("<div class='card-image waves-effect waves-block waves-light'>");
@@ -10,7 +10,13 @@ function generateCards(imgSRC, title, eventAddress, venueName, startTime, eventW
     cardTitle.html(title + "<i class='material-icons right'>more_vert</i>");
     newCardContent.append(cardTitle);
     var newCardAction = $("<div class='card-action'>");
-    var newLink = $("<a>").attr({"href": "#map-modal", "class": "modal-trigger map-button", "data-address": eventAddress });
+    var newLink = $("<a>").attr({
+        "href": "#map-modal", 
+        "class": "modal-trigger map-button", 
+        "data-address": eventAddress,
+        "data-lat": eventLat,
+        "data-long": eventLong
+    });
     newLink.text("Google Maps");
     newCardAction.append(newLink);
     var newCardReveal = $("<div class='card-reveal'>");
@@ -71,8 +77,15 @@ $(document).ready(function () {
             dataType: 'jsonp',
         }).then(function (res) {
             $("#search-loader").addClass("hide");
-            var events = res.events.event
+
+            if(res.events === null){
+                console.log("no events");
+                $("#no-event-modal").modal("open");
+                return;
+            }
             // console.log(res)
+            var events = res.events.event
+
             $(".banner").removeClass("page-load");
             $(".results").removeClass("page-load");
             $(".page-footer").removeClass("page-load");
@@ -80,9 +93,11 @@ $(document).ready(function () {
 
                 var title = events[i].title
                 var venue = events[i].venue_name
-                var address = events[i].venue_address
                 var time = moment(events[i].start_time, 'YYYY-MM-DD hh:mm:ss').format("MMMM Do YYYY, h:mm a")
+                var address = events[i].venue_address + "," + events[i].city_name
                 var url = events[i].url
+                var lat = events[i].latitude
+                var long = events[i].longitude
                 // if event doesn't have image, use placeholder img
                 if(events[i].image === null){
                     imgSRC = "https://source.unsplash.com/random/500x500";
@@ -90,7 +105,7 @@ $(document).ready(function () {
                 else{
                     imgSRC = events[i].image.large.url;
                 }
-                generateCards(imgSRC, title, address, venue, time, url);
+                generateCards(imgSRC, title, address, lat, long, venue, time, url);
             }
 
         })
