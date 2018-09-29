@@ -38,7 +38,7 @@
                 <!-- Location Input -->
                 <div class="input-field col s12 m3 offset-m2">
                     <i class="material-icons prefix" id="location-input-icon">location_searching</i>
-                    <input placeholder="Location" id="location-input" type="text" class="validate" required>
+                    <input placeholder="Location" id="location-input" type="text" pattern="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$ " class="validate" required>
                 </div>
                 <!-- Date Input -->
                 <div class="input-field col s12 m2">
@@ -169,7 +169,7 @@
         <div class="modal-content center-align">
             <h4>Invalid Input!</h4>
             <div class="divider"></div>
-            <p>Location: please enter city or zip code</p>
+            <p>Location: please enter a city or zip code</p>
             <p>Date: please enter current or future date</p>
         </div>
         <div class="modal-footer">
