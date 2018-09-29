@@ -28,6 +28,11 @@ function generateCards(imgSRC, title, eventAddress, venueName, startTime, eventW
     $("#results-display").append(newResult);
 }
 
+function formatTime(dateTime) {
+    var date = dateTime.split(' ')[0]
+    var time = dateTime.split(' ')[1]
+}
+
 $(document).ready(function () {
 
     var key = '9SPHrSHsCzcbp2ck'
@@ -80,7 +85,7 @@ $(document).ready(function () {
                 var title = events[i].title
                 var venue = events[i].venue_name
                 var address = events[i].venue_address
-                var time = events[i].start_time
+                var time = formatTime(events[i].start_time)
                 var url = events[i].url
                 // if event doesn't have image, use placeholder img
                 if(events[i].image === null){
