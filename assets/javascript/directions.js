@@ -1,6 +1,6 @@
 //GOOGLE DIRECTIONS API
 
-// ---------Best Practices---------??
+// ---------Best Practices---------
 //-walking, cycling, driviing directions
 //-show direction on map using poly lines (animate to show direction)
 //-provide image of what destination looks like as well (street view?)
@@ -112,7 +112,7 @@ $(document).on("click",".map-button", function(){
 })
 
 $("#google-form").on('submit', function(event){
-    event.preventDefault;
+    event.preventDefault();
     origin = $("#from-input").val();
     displayDirections();
     initMap();
