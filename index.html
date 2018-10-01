@@ -36,8 +36,8 @@
             <!-- Search Form -->
             <div class="row">
                 <!-- Location Input -->
-                <div class="input-field col s12 m3 offset-m2">
-                    <i class="material-icons prefix" id="location-input-icon">location_searching</i>
+                <div class="input-field algolia-places col s12 m3 offset-m2">
+                    <!-- <i class="material-icons prefix" id="location-input-icon">location_searching</i> -->
                     <input placeholder="Location" id="location-input" type="text" class="validate" required>
                 </div>
                 <!-- Date Input -->
@@ -240,5 +240,8 @@
     <script src="assets/javascript/directions.js" async defer></script>
     <!-- Eventful JS -->
     <script src="assets/javascript/eventful.js"></script>
+    <!--Algolia autocomplete JS library-->
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.11.0"></script>
+    <script src="assets/javascript/autocomplete.js"></script>
   </body>
 </html>
