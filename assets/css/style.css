@@ -1,6 +1,6 @@
 body {
-    background-color: rgb(205, 248, 248);
-    color: #00B6FF;
+    background-color: rgb(149, 235, 235);
+    color: rgb(10, 140, 192);
 }
 /* Icon Styles */
 i {
@@ -114,6 +114,9 @@ ul.dropdown-content.select-dropdown li span {
 }
 .disabled {
     pointer-events: none;
+}
+.pagination li.active a {
+    background-color: #039be5;
 }
 /* Hides results and footer display on load */
 .page-load.results, .page-load.page-footer{
