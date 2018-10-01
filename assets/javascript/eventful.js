@@ -15,7 +15,7 @@ function getResults(result, startIndex, endIndex){
         title = result[i].title
         venue = result[i].venue_name
         address = result[i].venue_address + "," + result[i].city_name
-        time = result[i].start_time
+        time = moment(events[i].start_time, 'YYYY-MM-DD hh:mm:ss').format("MMMM Do YYYY, h:mm a")
         url = result[i].url
         lat = result[i].latitude
         long = result[i].longitude
@@ -162,7 +162,7 @@ $(document).ready(function () {
             category = '&category=' + $('#category-input').val()
         }
         $("#title-location").text($('#location-input').val().trim());
-        $("#title-date").text($("#date-input").val());
+        $("#title-date").text(moment($("#date-input").val(), "YYYY-MM-DD").format("L"));
         var queryUrl = 'http://api.eventful.com/json/events/search?sort_order=popularity&image_sizes=large&page_size=81&app_key=' + key + location + category + date
 
         // console.log(queryUrl)
