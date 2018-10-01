@@ -25,9 +25,9 @@ function getResults(result, startIndex, endIndex){
         }
         else{
             imgSRC = result[i].image.large.url;
-            var substring = "http";
-            if(imgSRC.indexOf(substring) !== -1){
-                console.log("http is there");
+            var substring = "http:";
+            if(imgSRC.indexOf(substring) === -1){
+                imgSRC = substring + imgSRC;
             }
 
         }
