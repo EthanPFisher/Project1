@@ -21,7 +21,7 @@ function getResults(result, startIndex, endIndex){
         long = result[i].longitude
         // if event doesn't have image, use placeholder img
         if(result[i].image === null){
-            imgSRC = "https://source.unsplash.com/random/500x500";
+            imgSRC = "https://source.unsplash.com/500x500/?" + title;
         }
         else{
             imgSRC = result[i].image.large.url;
