@@ -25,6 +25,11 @@ function getResults(result, startIndex, endIndex){
         }
         else{
             imgSRC = result[i].image.large.url;
+            var substring = "http";
+            if(imgSRC.indexOf(substring) !== -1){
+                console.log("http is there");
+            }
+
         }
         generateCards(imgSRC, title, address, lat, long, venue, time, url);
     }
