@@ -1,6 +1,6 @@
 body {
-    background-color: rgb(205, 248, 248);
-    color: #00B6FF;
+    background-color: rgb(149, 235, 235);
+    color: rgb(10, 140, 192);
 }
 /* Icon Styles */
 i {
@@ -24,13 +24,13 @@ nav i.material-icons {
 /* Location Input styles */
 input#location-input, input#location-input:focus {
     color: #00FFFF;
-    text-shadow: 3px 3px 3px #000000;
+    text-shadow: 2px 2px 2px #000000;
     font-weight: bold;
 }
 /* Date Input Styles */
 input#date-input{
     color: #00FFFF;
-    text-shadow: 3px 3px 3px #000000;
+    text-shadow: 2px 2px 2px #000000;
     font-weight: bold;
 }
 #date-icon:hover {
@@ -44,7 +44,7 @@ input#date-input{
 /* Category Styles */
 .category input.select-dropdown.dropdown-trigger {
     color: #00FFFF;
-    text-shadow: 3px 3px 3px #000000;
+    text-shadow: 2px 2px 2px #000000;
     font-weight: bold;
 }
 /* Category Dropdown Styles */
@@ -55,14 +55,16 @@ ul.dropdown-content.select-dropdown li span {
 /* Webpage Title */
 .logo {
     color: white;
+    text-shadow: 5px 5px 5px black;
     font-family: "Dosis", sans-serif;
     font-weight: 800;
 }
 /* Webpage Banner */
 .banner {
-    background-image: url("../images/background.jpeg");
+    background-image: linear-gradient(70deg, #1A0090, #1F0052), url("../images/background.jpeg");
     background-size: cover;
     background-position: center;
+    background-blend-mode: screen;
     height: 65vh;
     padding: 50px 0;
 }
@@ -112,6 +114,9 @@ ul.dropdown-content.select-dropdown li span {
 }
 .disabled {
     pointer-events: none;
+}
+.pagination li.active a {
+    background-color: #039be5;
 }
 /* Hides results and footer display on load */
 .page-load.results, .page-load.page-footer{
