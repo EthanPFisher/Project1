@@ -12,18 +12,26 @@ li i {
 /* Navbar styles */
 nav {
     background-color: #00B6FF;
+    height: 50px;
 }
 nav ul{
     display: flex;
     justify-content: space-around !important;
 }
+nav i.material-icons {
+    height: 50px !important;
+}
 /* Location Input styles */
 input#location-input, input#location-input:focus {
-    color: white;
+    color: #00FFFF;
+    text-shadow: 3px 3px 3px #000000;
+    font-weight: bold;
 }
 /* Date Input Styles */
 input#date-input{
     color: #00FFFF;
+    text-shadow: 3px 3px 3px #000000;
+    font-weight: bold;
 }
 #date-icon:hover {
     cursor: pointer;
@@ -74,12 +82,36 @@ ul.dropdown-content.select-dropdown li span {
 .results {
     margin-top: 2rem;
 }
+/* Used to hide loading icon */
+.hide {
+    display: none;
+}
 .divider {
     background-color: #00B6FF;
+}
+/* Card Styles */
+.card {
+    height: 500px;
+}
+.card-image {
+    height: 295px;
+}
+.card-content {
+    height: 150px;
+    overflow:scroll;
+}
+.card-action {
+    height: 55px;
 }
 /* Styles the Google Maps button on results cards */
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
     color: #039be5;
+}
+.event-details {
+    text-align: left;
+}
+.disabled {
+    pointer-events: none;
 }
 /* Hides results and footer display on load */
 .page-load.results, .page-load.page-footer{
@@ -109,13 +141,38 @@ ul.dropdown-content.select-dropdown li span {
   line-height: 17px     !important;
   font-weight: bold     !important;
 }
+
 /* Search/Directions Button Styles */
-#search-button, #get-directions-button {
+#search-button, #get-directions-button, .modal-close {
     color: white;
     font-weight: bold;
     background-color: #00B6FF;
 }
+
+.modal-close:hover {
+    color: #00B6FF;
+    background-color: white;
+}
 /* Results Title Style */
 #results-title {
     font-family: "Dosis", sans-serif;
+}
+
+#input-validation-modal{
+    width: 450px;
+    height: 250px;
+}
+
+#map-embed {
+    height: 450px;
+    width: 450px;
+}
+#map-modal {
+    width: 1000px;
+}
+
+#directions-list {
+    color: black;
+    overflow: scroll;
+    height: 200px;
 }
