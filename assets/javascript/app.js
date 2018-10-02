@@ -12,7 +12,15 @@ $("#date-input").on("click", function(){
 function inputValidation(data){
     var input = $(data);
     // If input is not valid according to preset rules in HTML, then display modal
-    if(!input[0].checkValidity()){
+    if(!input[0].checkValidity() && data === "#location-input"){
+        $("#location-validation").css("display", "auto");
+        $("#date-validation").css("dispaly", "none");
+        $("#input-validation-modal").modal("open");
+        return false;
+    }
+    else if(!input[0].checkValidity() && data === "#date-input"){
+        $("#location-validation").css("display", "none");
+        $("#date-validation").css("display", "auto");
         $("#input-validation-modal").modal("open");
         return false;
     }

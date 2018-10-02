@@ -177,12 +177,9 @@ $(document).ready(function () {
     $('#search-button').on('click', function () {
         $("#results-display").empty();
         $(".pages").remove();
-        if(!inputValidation("#date-input")){
+        if(!inputValidation("#location-input") || !inputValidation("#date-input")){
             return;
         };
-        if(!inputValidation("#location-input")){
-            return;
-        }
         $("#search-loader").removeClass("hide");
         if ($('#location-input').val() != '') {
             location = '&location=' + $('#location-input').val().trim()
