@@ -63,7 +63,7 @@ function generateCards(imgSRC, title, eventID, eventAddress, eventLat, eventLong
     var eventDetails = $("<div class='event-details'>");
     var eventVenue = $("<span>").text("Venue: " + venueName);
     var eventTime = $("<span>").text("Start Time: " + startTime);
-    var eventTickets = $("<button>").attr({"class": "event-tickets btn"}).html("<i class='material-icons'>local_offer</i>Get Tickets");
+    var eventTickets = $("<a>").attr({"class": "event-tickets btn"}).html("<i class='material-icons'>local_offer</i>Get Tickets");
     var url = $("<a>").attr("href", eventWebsite).html("<u>Eventful</u>");
     var eventURL = $("<span>").text("For more information please visit: ");
     eventDetails.append("<br>", eventVenue, "<br><br>", eventTime, "<br><br>", eventTickets, "<br><br>", eventURL, url);
@@ -129,7 +129,6 @@ $(document).on('click', ".activator", function(){
         method: "GET", 
         dataType: "jsonp",
     }).then(function(result){
-        console.log(result.links.link);
         if(result.links === null){
             $(thisTicketButton).attr({"href": "#no-tickets-modal"});
             $(thisTicketButton).addClass("modal-trigger");
@@ -137,13 +136,12 @@ $(document).on('click', ".activator", function(){
         else {
             var url = result.links.link[0].url;
             for(var i=0; i < result.links.link.length; i++){
-                if(result.links.link[i].type === "Tickets"){
+                if(result.links.link[i].type == "Tickets"){
                     url = result.links.link[i].url;
-                    return;
+                    break;
                 }
             }
             $(thisTicketButton).attr({"href": url, "target": "_blank"});
-            
         }
     })
 })
