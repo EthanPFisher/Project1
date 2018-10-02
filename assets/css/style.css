@@ -102,6 +102,12 @@ ul.dropdown-content.select-dropdown li span {
     height: 150px;
     overflow:scroll;
 }
+.event-tickets {
+    font-size: 14px;
+}
+.event-tickets.btn i {
+    font-size: 16px;
+}
 .card-action {
     height: 55px;
 }

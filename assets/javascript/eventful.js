@@ -63,7 +63,7 @@ function generateCards(imgSRC, title, eventID, eventAddress, eventLat, eventLong
     var eventDetails = $("<div class='event-details'>");
     var eventVenue = $("<span>").text("Venue: " + venueName);
     var eventTime = $("<span>").text("Start Time: " + startTime);
-    var eventTickets = $("<a>").attr({"class": "event-tickets btn"}).html("<i class='material-icons'>local_activity</i> <strong>Get Tickets</strong>");
+    var eventTickets = $("<button>").attr({"class": "event-tickets btn"}).html("<i class='material-icons'>local_offer</i>Get Tickets");
     var url = $("<a>").attr("href", eventWebsite).html("<u>Eventful</u>");
     var eventURL = $("<span>").text("For more information please visit: ");
     eventDetails.append("<br>", eventVenue, "<br><br>", eventTime, "<br><br>", eventTickets, "<br><br>", eventURL, url);
@@ -122,7 +122,6 @@ function displayPage(clicked){
 
 $(document).on('click', ".activator", function(){
     var thisTicketButton = $(this)[0].parentElement.parentElement.children[3].children[2].children[7];
-    console.log(thisTicketButton);
     var id = $(this).attr("data-id");
     var queryUrl = "http://api.eventful.com/json/events/get?app_key=9SPHrSHsCzcbp2ck&id=" + id;
     $.ajax({
@@ -130,13 +129,21 @@ $(document).on('click', ".activator", function(){
         method: "GET", 
         dataType: "jsonp",
     }).then(function(result){
+        console.log(result.links.link);
         if(result.links === null){
             $(thisTicketButton).attr({"href": "#no-tickets-modal"});
             $(thisTicketButton).addClass("modal-trigger");
         }
         else {
             var url = result.links.link[0].url;
+            for(var i=0; i < result.links.link.length; i++){
+                if(result.links.link[i].type === "Tickets"){
+                    url = result.links.link[i].url;
+                    return;
+                }
+            }
             $(thisTicketButton).attr({"href": url, "target": "_blank"});
+            
         }
     })
 })
