@@ -12,7 +12,6 @@ li i {
 /* Navbar styles */
 nav {
     background-color: #00B6FF;
-    height: 50px;
 }
 nav ul{
     display: flex;
