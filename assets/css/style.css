@@ -33,6 +33,12 @@ input#date-input{
     text-shadow: 2px 2px 2px #000000;
     font-weight: bold;
 }
+input::-webkit-datetime-edit-day-field:focus,
+input::-webkit-datetime-edit-month-field:focus,
+input::-webkit-datetime-edit-year-field:focus{
+    background-color: white;
+    text-shadow: none;
+}
 #date-icon:hover {
     cursor: pointer;
 }
