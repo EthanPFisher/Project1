@@ -46,7 +46,8 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         if (status === 'OK') {
             directionsDisplay.setDirections(response);
         } else {
-            alert('Directions request failed due to ' + status);
+            $("#display-error").text(status)
+            $("#maps-error-modal").modal("open");
         }
     })
 }
@@ -141,6 +142,12 @@ $(document).on("click", ".map-button", function () {
 $("#google-form").on('submit', function (event) {
     event.preventDefault();
     origin = $("#from-input").val();
+    if(origin === ""){
+        $("#location-validation").css("display", "auto");
+        $("#date-validation").css("display", "none");
+        $("#input-validation-modal").modal("open");
+        return;
+    }
     displayDirections();
     calculateAndDisplayRoute(directionsService, directionsDisplay);
 })
