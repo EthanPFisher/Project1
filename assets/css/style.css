@@ -170,6 +170,14 @@ ul.dropdown-content.select-dropdown li span {
     color: #00B6FF;
     background-color: white;
 }
+
+.close-button{
+    background-color: transparent;
+    color: gray;
+}
+.close-button:hover {
+    background-color: transparent;
+}
 /* Results Title Style */
 #results-title {
     font-family: "Dosis", sans-serif;
