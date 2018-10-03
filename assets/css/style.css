@@ -135,7 +135,7 @@ ul.dropdown-content.select-dropdown li span {
 .disabled {
     pointer-events: none;
 }
-.pagination li.active a {
+.pagination li.active a, .pagination li.active {
     background-color: #039be5;
 }
 /* Hides results and footer display on load */
