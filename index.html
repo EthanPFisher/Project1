@@ -28,14 +28,14 @@
             <!-- Search Form -->
             <div class="row">
                 <!-- Location Input -->
-                <div class="input-field col s12 m3 offset-m2 location">
+                <div class="input-field location col s12 m3 offset-m2">
                     <i class="material-icons prefix" id="location-input-icon">location_searching</i>
                     <input placeholder="Location" id="location-input" type="text" class="validate" required>
                 </div>
                 <!-- Date Input -->
                 <div class="input-field col s12 m2">
                     <i class="material-icons prefix" id="date-icon">date_range</i>
-                    <input id="date-input" type="date" class="unstyled datepicker validate" max="2020-12-31" required>
+                    <input id="date-input" type="date" class="unstyled datepicker validate" required>
                 </div>
                 <!-- Category Input -->
                 <div class="input-field col s12 m3 category">
@@ -96,14 +96,17 @@
             </div>
         </div>
         <div class="row center-align">
-            <ul class="pagination">
-                <li class="disabled" id="pagination-start"><a href="#results-title"><i class="material-icons">chevron_left</i></a></li>
-                <li class="waves-effect" id="pagination-end"><a href="#results-title"><i class="material-icons">chevron_right</i></a></li>
-            </ul>  
+            <div class="col s12">
+                <ul class="pagination">
+                    <li class="disabled" id="pagination-start"><a href="#results-title"><i class="material-icons">chevron_left</i></a></li>
+                    <li class="waves-effect" id="pagination-end"><a href="#results-title"><i class="material-icons">chevron_right</i></a></li>
+                </ul>  
+            </div>
         </div> 
     </div>
     <!-- Google Maps Modal -->
     <div id="map-modal" class="modal">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat right close-button">X</a>
         <div class="modal-content">
             <!-- Modal Content -->
             <div class="row">
@@ -141,7 +144,7 @@
                             <div class="col s11">
                                 <!-- Destination -->
                                 <div class="input-field">
-                                    <label for="to-input">Event Location</label>
+                                    <label for="to-input">Event</label>
                                     <input id="to-input" type="text" class="validate" value="Event Location" disabled>   
                                 </div>
                             </div>
@@ -205,13 +208,12 @@
       <div class="container">
         <div class="row">
           <div class="col l6 s12">
-            <h5>Footer Content</h5>
+            <h5>Built With: </h5>
             <!-- Eventful Badge Copy/pasted from their website -->
             <div class="eventful-badge eventful-large">
                 <img src="http://api.eventful.com/images/powered/eventful_139x44.gif" alt="Local Events, Concerts, Tickets">
                 <p><a href="http://eventful.com/">Events</a> by Eventful</p>
             </div>
-            <p class="text-lighten-4">You can use rows and columns here to organize your footecontent.</p>
           </div>
           <div class="col l4 offset-l2 s12">
             <h5>Links</h5>
@@ -224,7 +226,7 @@
       </div>
       <div class="footer-copyright">
         <div class="container center-align">
-        © 2018 Copyright Text
+        © 2018 Entertain Me
         </div>
       </div>
     </footer>

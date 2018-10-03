@@ -104,9 +104,17 @@ ul.dropdown-content.select-dropdown li span {
 .card-image {
     height: 295px;
 }
+.title-icon {
+    position: absolute;
+    bottom: 150px;
+    right: 5px;
+}
+.title-icon:hover {
+    cursor: pointer;
+}
 .card-content {
     height: 150px;
-    overflow:scroll;
+    overflow: scroll;
 }
 .event-tickets {
     font-size: 14px;
@@ -127,7 +135,7 @@ ul.dropdown-content.select-dropdown li span {
 .disabled {
     pointer-events: none;
 }
-.pagination li.active a {
+.pagination li.active a, .pagination li.active {
     background-color: #039be5;
 }
 /* Hides results and footer display on load */
@@ -170,6 +178,14 @@ ul.dropdown-content.select-dropdown li span {
     color: #00B6FF;
     background-color: white;
 }
+
+.close-button{
+    background-color: transparent;
+    color: gray;
+}
+.close-button:hover {
+    background-color: transparent;
+}
 /* Results Title Style */
 #results-title {
     font-family: "Dosis", sans-serif;
@@ -193,4 +209,10 @@ ul.dropdown-content.select-dropdown li span {
     color: black;
     overflow: scroll;
     height: 220px;
+}
+
+@media only screen and (max-width: 992px) {
+    .pagination li.pages {
+        width: 5%;
+    }
 }

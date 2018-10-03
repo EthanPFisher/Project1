@@ -135,6 +135,7 @@ $(document).on("click", ".map-button", function () {
     console.log(thisLat);
     console.log(thisLong);
     initMap(thisLat, thisLong);
+    transportMethod = 'DRIVING';
 })
 
 $("#google-form").on('submit', function (event) {
