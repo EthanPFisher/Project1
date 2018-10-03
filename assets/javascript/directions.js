@@ -107,10 +107,11 @@ function displayDirections(){
 
 $(document).on("click",".map-button", function(){
     // Clicking google maps button grabs the event address
-    destination = $(this).attr("data-address");
+    // destination = $(this).attr("data-address");
+    $("#to-input").val($(this).attr("data-address"));
     var thisLat = parseFloat($(this).attr("data-lat"));
     var thisLong = parseFloat($(this).attr("data-long"));
-    $("#to-input").val(destination);
+    
     // Empty's div so directions don't double up
     $("#directions-list").empty();
     console.log(thisLat);
@@ -121,6 +122,7 @@ $(document).on("click",".map-button", function(){
 $("#google-form").on('submit', function(event){
     event.preventDefault();
     origin = $("#from-input").val();
+    destination = $("#to-input").val();
     displayDirections();
     calculateAndDisplayRoute(directionsService, directionsDisplay);
 })    
