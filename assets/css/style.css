@@ -104,9 +104,17 @@ ul.dropdown-content.select-dropdown li span {
 .card-image {
     height: 295px;
 }
+.title-icon {
+    position: absolute;
+    bottom: 150px;
+    right: 5px;
+}
+.title-icon:hover {
+    cursor: pointer;
+}
 .card-content {
     height: 150px;
-    overflow:scroll;
+    overflow: scroll;
 }
 .event-tickets {
     font-size: 14px;

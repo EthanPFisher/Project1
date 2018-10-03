@@ -40,13 +40,13 @@ function getResults(result, startIndex, endIndex){
 function generateCards(imgSRC, title, eventID, eventAddress, eventLat, eventLong, venueName, startTime, eventWebsite){
     var newResult = $("<div class='col s12 m4'>");
     var newCard = $("<div class='card sticky-action hoverable'>");
-    var newCardImage = $("<div class='card-image waves-effect waves-block waves-light'>");
+    var newCardImage = $("<div class='card-image activator waves-effect waves-block waves-light'>");
     var newImage = $("<img class='activator'>").attr({"src": imgSRC, "data-id": eventID});
     newCardImage.append(newImage);
     var newCardContent = $("<div class='card-content'>");
-    var cardTitle = $("<span class='card-title activator'>").attr("data-id", eventID);
-    cardTitle.html(title + "<i class='material-icons right'>more_vert</i>");
-    newCardContent.append(cardTitle);
+    var cardTitle = $("<span class='card-title activator'>").attr("data-id", eventID).html(title);
+    cardTitleIcon = $("<span class='title-icon activator'>").html("<i class='material-icons right'>more_vert</i>");
+    newCardContent.append(cardTitle, cardTitleIcon);
     var newCardAction = $("<div class='card-action'>");
     var newLink = $("<a>").attr({
         "href": "#map-modal", 
@@ -64,7 +64,7 @@ function generateCards(imgSRC, title, eventID, eventAddress, eventLat, eventLong
     var eventVenue = $("<span>").text("Venue: " + venueName);
     var eventTime = $("<span>").text("Start Time: " + startTime);
     var eventTickets = $("<a>").attr({"class": "event-tickets btn"}).html("<i class='material-icons'>local_offer</i>Get Tickets");
-    var url = $("<a>").attr("href", eventWebsite).html("<u>Eventful</u>");
+    var url = $("<a>").attr({"href": eventWebsite, "target": "_blank"}).html("<u>Eventful</u>");
     var eventURL = $("<span>").text("For more information please visit: ");
     eventDetails.append("<br>", eventVenue, "<br><br>", eventTime, "<br><br>", eventTickets, "<br><br>", eventURL, url);
     newCardReveal.append(revealTitle,"<br>", eventDetails);
