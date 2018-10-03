@@ -1,17 +1,9 @@
 <!DOCTYPE html>
- <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    </head>
-<!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Entertain Me</title>
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,8 +28,8 @@
             <!-- Search Form -->
             <div class="row">
                 <!-- Location Input -->
-                <div class="input-field algolia-places col s12 m3 offset-m2">
-                    <!-- <i class="material-icons prefix" id="location-input-icon">location_searching</i> -->
+                <div class="input-field col s12 m3 offset-m2">
+                    <i class="material-icons prefix" id="location-input-icon">location_searching</i>
                     <input placeholder="Location" id="location-input" type="text" class="validate" required>
                 </div>
                 <!-- Date Input -->
@@ -128,7 +120,6 @@
                                 </ul>
                             </div>
                         </nav>
-                        <br>
                         <!-- Directions Input form -->
                         <div class="row valign-wrapper">
                             <!-- My Location Icon -->
@@ -138,7 +129,6 @@
                             <div class="col s11">
                                 <!-- Start From -->
                                 <div class="input-field">
-                                    <label for="from-input">Start from: </label>
                                     <input placeholder=" " id="from-input" type="text" class="validate">   
                                 </div>
                             </div>
@@ -151,7 +141,6 @@
                             <div class="col s11">
                                 <!-- Destination -->
                                 <div class="input-field">
-                                    <label for="to-input"> To:  </label>
                                     <input id="to-input" type="text" class="validate" value="Event Location">   
                                 </div>
                             </div>
@@ -175,8 +164,8 @@
         <div class="modal-content center-align">
             <h4>Invalid Input!</h4>
             <div class="divider"></div>
-            <p>Location: please enter a city or zip code</p>
-            <p>Date: please enter current or future date</p>
+            <p id="location-validation">Please enter a city or zip code</p>
+            <p id="date-validation">Please enter current or future date</p>
         </div>
         <div class="modal-footer">
             <div class="row center-align">
@@ -190,6 +179,19 @@
             <h4>No Events Found!</h4>
             <div class="divider"></div>
             <p>Please try searching a different location or date</p>
+        </div>
+        <div class="modal-footer">
+            <div class="row center-align">
+                <a href="#!" class="modal-close btn">Close</a>
+            </div>
+        </div>
+    </div>
+    <!-- No Tickets Modal -->
+    <div id="no-tickets-modal" class="modal">
+        <div class="modal-content center-align">
+            <h4>No Tickets Found!</h4>
+            <div class="divider"></div>
+            <p>Oops! It seems there are no tickets on sale for this event!</p>
         </div>
         <div class="modal-footer">
             <div class="row center-align">

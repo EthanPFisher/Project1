@@ -6,19 +6,21 @@ var time;
 var url;
 var lat;
 var long;
+var eventId;
 var numberOfPages;
 var currentPage;
 
 function getResults(result, startIndex, endIndex){
     for (i = startIndex; i < endIndex ; i++) {
 
-        title = result[i].title
-        venue = result[i].venue_name
-        address = result[i].venue_address + "," + result[i].city_name
-        time = moment(events[i].start_time, 'YYYY-MM-DD hh:mm:ss').format("MMMM Do YYYY, h:mm a")
-        url = result[i].url
-        lat = result[i].latitude
-        long = result[i].longitude
+        title = result[i].title;
+        venue = result[i].venue_name;
+        address = result[i].venue_address + "," + result[i].city_name;
+        time = moment(events[i].start_time, 'YYYY-MM-DD hh:mm:ss').format("MMMM Do YYYY, h:mm a");
+        url = result[i].url;
+        lat = result[i].latitude;
+        long = result[i].longitude;
+        eventId = result[i].id;
         // if event doesn't have image, use placeholder img
         if(result[i].image === null){
             imgSRC = "https://source.unsplash.com/500x500/?" + title;
@@ -31,18 +33,18 @@ function getResults(result, startIndex, endIndex){
             }
 
         }
-        generateCards(imgSRC, title, address, lat, long, venue, time, url);
+        generateCards(imgSRC, title, eventId, address, lat, long, venue, time, url);
     }
 }
 
-function generateCards(imgSRC, title, eventAddress, eventLat, eventLong, venueName, startTime, eventWebsite){
+function generateCards(imgSRC, title, eventID, eventAddress, eventLat, eventLong, venueName, startTime, eventWebsite){
     var newResult = $("<div class='col s12 m4'>");
     var newCard = $("<div class='card sticky-action hoverable'>");
     var newCardImage = $("<div class='card-image waves-effect waves-block waves-light'>");
-    var newImage = $("<img class='activator'>").attr("src", imgSRC);
+    var newImage = $("<img class='activator'>").attr({"src": imgSRC, "data-id": eventID});
     newCardImage.append(newImage);
     var newCardContent = $("<div class='card-content'>");
-    var cardTitle = $("<span class='card-title activator'>");
+    var cardTitle = $("<span class='card-title activator'>").attr("data-id", eventID);
     cardTitle.html(title + "<i class='material-icons right'>more_vert</i>");
     newCardContent.append(cardTitle);
     var newCardAction = $("<div class='card-action'>");
@@ -61,9 +63,10 @@ function generateCards(imgSRC, title, eventAddress, eventLat, eventLong, venueNa
     var eventDetails = $("<div class='event-details'>");
     var eventVenue = $("<span>").text("Venue: " + venueName);
     var eventTime = $("<span>").text("Start Time: " + startTime);
+    var eventTickets = $("<a>").attr({"class": "event-tickets btn"}).html("<i class='material-icons'>local_offer</i>Get Tickets");
     var url = $("<a>").attr("href", eventWebsite).html("<u>Eventful</u>");
     var eventURL = $("<span>").text("For more information please visit: ");
-    eventDetails.append("<br>", eventVenue, "<br><br>", eventTime, "<br><br>", eventURL, url);
+    eventDetails.append("<br>", eventVenue, "<br><br>", eventTime, "<br><br>", eventTickets, "<br><br>", eventURL, url);
     newCardReveal.append(revealTitle,"<br>", eventDetails);
     newCard.append(newCardImage, newCardContent, newCardAction, newCardReveal);
     newResult.append(newCard);
@@ -117,6 +120,32 @@ function displayPage(clicked){
     getResults(events, newStartIndex, newEndIndex);
 }
 
+$(document).on('click', ".activator", function(){
+    var thisTicketButton = $(this)[0].parentElement.parentElement.children[3].children[2].children[7];
+    var id = $(this).attr("data-id");
+    var queryUrl = "http://api.eventful.com/json/events/get?app_key=9SPHrSHsCzcbp2ck&id=" + id;
+    $.ajax({
+        url: queryUrl,
+        method: "GET", 
+        dataType: "jsonp",
+    }).then(function(result){
+        if(result.links === null){
+            $(thisTicketButton).attr({"href": "#no-tickets-modal"});
+            $(thisTicketButton).addClass("modal-trigger");
+        }
+        else {
+            var url = result.links.link[0].url;
+            for(var i=0; i < result.links.link.length; i++){
+                if(result.links.link[i].type == "Tickets"){
+                    url = result.links.link[i].url;
+                    break;
+                }
+            }
+            $(thisTicketButton).attr({"href": url, "target": "_blank"});
+        }
+    })
+})
+
 $(document).on("click", ".page-number", function(){
     $(".pages").removeClass("active");
     $(this).parents("li").addClass("active");
@@ -144,17 +173,13 @@ $(document).ready(function () {
     var location = ''
     var date = ''
     var category = ''
-    var imgSRC = ""
 
     $('#search-button').on('click', function () {
         $("#results-display").empty();
         $(".pages").remove();
-        if(!inputValidation("#date-input")){
+        if(!inputValidation("#location-input") || !inputValidation("#date-input")){
             return;
         };
-        if(!inputValidation("#location-input")){
-            return;
-        }
         $("#search-loader").removeClass("hide");
         if ($('#location-input').val() != '') {
             location = '&location=' + $('#location-input').val().trim()

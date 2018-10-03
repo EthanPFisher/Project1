@@ -12,14 +12,10 @@ li i {
 /* Navbar styles */
 nav {
     background-color: #00B6FF;
-    height: 50px;
 }
 nav ul{
     display: flex;
     justify-content: space-around !important;
-}
-nav i.material-icons {
-    height: 50px !important;
 }
 /* Location Input styles */
 input#location-input, input#location-input:focus {
@@ -27,11 +23,21 @@ input#location-input, input#location-input:focus {
     text-shadow: 2px 2px 2px #000000;
     font-weight: bold;
 }
+.algolia-places {
+    margin-left: 3rem !important;
+    width: calc(100% - 3rem);
+}
 /* Date Input Styles */
 input#date-input{
     color: #00FFFF;
     text-shadow: 2px 2px 2px #000000;
     font-weight: bold;
+}
+input::-webkit-datetime-edit-day-field:focus,
+input::-webkit-datetime-edit-month-field:focus,
+input::-webkit-datetime-edit-year-field:focus{
+    background-color: white;
+    text-shadow: none;
 }
 #date-icon:hover {
     cursor: pointer;
@@ -102,6 +108,12 @@ ul.dropdown-content.select-dropdown li span {
     height: 150px;
     overflow:scroll;
 }
+.event-tickets {
+    font-size: 14px;
+}
+.event-tickets.btn i {
+    font-size: 16px;
+}
 .card-action {
     height: 55px;
 }
@@ -169,15 +181,16 @@ ul.dropdown-content.select-dropdown li span {
 }
 
 #map-embed {
-    height: 450px;
+    height: 550px;
     width: 450px;
 }
 #map-modal {
     width: 1000px;
+    max-height: 100%;
 }
 
 #directions-list {
     color: black;
     overflow: scroll;
-    height: 200px;
+    height: 220px;
 }
