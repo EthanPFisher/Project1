@@ -14,7 +14,7 @@ function inputValidation(data){
     // If input is not valid according to preset rules in HTML, then display modal
     if(!input[0].checkValidity() && data === "#location-input"){
         $("#location-validation").css("display", "auto");
-        $("#date-validation").css("dispaly", "none");
+        $("#date-validation").css("display", "none");
         $("#input-validation-modal").modal("open");
         return false;
     }
