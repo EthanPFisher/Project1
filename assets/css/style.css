@@ -28,6 +28,9 @@ input#location-input, input#location-input:focus {
     width: calc(100% - 3rem);
 }
 /* Date Input Styles */
+.datepicker-controls .select-month input{
+    width: 100px;
+}
 input#date-input{
     color: #00FFFF;
     text-shadow: 2px 2px 2px #000000;
@@ -137,6 +140,7 @@ ul.dropdown-content.select-dropdown li span {
 }
 .pagination li.active a, .pagination li.active {
     background-color: #039be5;
+
 }
 /* Hides results and footer display on load */
 .page-load.results, .page-load.page-footer{
@@ -203,6 +207,11 @@ ul.dropdown-content.select-dropdown li span {
 #map-modal {
     width: 1000px;
     max-height: 100%;
+}
+
+#maps-error-modal {
+    width: 500px;
+    height: 250px;
 }
 
 #directions-list {

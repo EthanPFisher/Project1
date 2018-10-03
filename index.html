@@ -116,10 +116,10 @@
                         <nav>
                             <div class="nav-wrapper">
                                 <ul>
-                                    <li><a><i class="material-icons" id = "DRIVING">directions_car</i></a></li>
-                                    <li><a><i class="material-icons" id = "TRANSIT">directions_transit</i></a></li>
-                                    <li><a><i class="material-icons" id = "BICYCLING">directions_bike</i></a></li>
-                                    <li><a><i class="material-icons" id = "WALKING">directions_walk</i></a></li>
+                                    <li class="active"><a><i class="material-icons nav-icons" id = "DRIVING">directions_car</i></a></li>
+                                    <li><a><i class="material-icons nav-icons" id = "TRANSIT">directions_transit</i></a></li>
+                                    <li><a><i class="material-icons nav-icons" id = "BICYCLING">directions_bike</i></a></li>
+                                    <li><a><i class="material-icons nav-icons" id = "WALKING">directions_walk</i></a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -160,6 +160,19 @@
                 <!-- Google Map -->
                 <div class="col s12 m6 center-align" id ="map-embed" >
                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- Google Maps Error Modal -->
+    <div id="maps-error-modal" class="modal">
+        <div class="modal-content center-align">
+            <h4>Directions Request Failed!</h4>
+            <div class="divider"></div>
+            <p id="display-error"></p>
+        </div>
+        <div class="modal-footer">
+            <div class="row center-align">
+                <a href="#!" class="modal-close btn">Close</a>
             </div>
         </div>
     </div>
