@@ -137,6 +137,7 @@ ul.dropdown-content.select-dropdown li span {
 }
 .pagination li.active a, .pagination li.active {
     background-color: #039be5;
+
 }
 /* Hides results and footer display on load */
 .page-load.results, .page-load.page-footer{

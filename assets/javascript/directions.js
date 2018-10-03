@@ -159,4 +159,8 @@ $(".material-icons").on('click', function () {
 })
 
 
-
+$(".nav-icons").on('click',function(){
+    console.log('test')
+    $(".nav-icons").parents("li").removeClass('active')
+    $(this).parents("li").addClass('active');
+})
