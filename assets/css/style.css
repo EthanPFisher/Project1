@@ -205,6 +205,11 @@ ul.dropdown-content.select-dropdown li span {
     max-height: 100%;
 }
 
+#maps-error-modal {
+    width: 500px;
+    height: 300px;
+}
+
 #directions-list {
     color: black;
     overflow: scroll;
