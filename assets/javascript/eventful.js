@@ -15,7 +15,7 @@ function getResults(result, startIndex, endIndex){
 
         title = result[i].title;
         venue = result[i].venue_name;
-        address = result[i].venue_address + "," + result[i].city_name;
+        address = result[i].venue_address + ", " + result[i].city_name;
         time = moment(events[i].start_time, 'YYYY-MM-DD hh:mm:ss').format("MMMM Do YYYY, h:mm a");
         url = result[i].url;
         lat = result[i].latitude;
