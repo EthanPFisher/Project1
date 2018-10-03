@@ -44,5 +44,12 @@ $(document).ready(function(){
     preventPastDates();
     $('.datepicker').datepicker({"format": "yyyy-mm-dd"});
     $('select').formSelect();
-    $('.modal').modal();
+    $('.modal').modal({
+        onCloseEnd: function(){
+            $("#map-embed").empty();
+            directionsDisplay.set('directions', null);
+            $("#from-input").val("");
+            console.log("modal end");
+        }
+    });
   });
