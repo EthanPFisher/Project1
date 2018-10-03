@@ -23,7 +23,7 @@ input#location-input, input#location-input:focus {
     text-shadow: 2px 2px 2px #000000;
     font-weight: bold;
 }
-.algolia-places {
+.location > .algolia-places {
     margin-left: 3rem !important;
     width: calc(100% - 3rem);
 }

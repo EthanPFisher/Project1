@@ -28,7 +28,7 @@
             <!-- Search Form -->
             <div class="row">
                 <!-- Location Input -->
-                <div class="input-field col s12 m3 offset-m2">
+                <div class="input-field col s12 m3 offset-m2 location">
                     <i class="material-icons prefix" id="location-input-icon">location_searching</i>
                     <input placeholder="Location" id="location-input" type="text" class="validate" required>
                 </div>
@@ -141,7 +141,8 @@
                             <div class="col s11">
                                 <!-- Destination -->
                                 <div class="input-field">
-                                    <input id="to-input" type="text" class="validate" value="Event Location">   
+                                    <label for="to-input">Event Location</label>
+                                    <input id="to-input" type="text" class="validate" value="Event Location" disabled>   
                                 </div>
                             </div>
                         </div>
