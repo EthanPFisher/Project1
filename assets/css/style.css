@@ -220,7 +220,7 @@ ul.dropdown-content.select-dropdown li span {
     height: 220px;
 }
 
-#maps-badge, #materialize-badge {
+#maps-badge, #materialize-badge, #algolia-badge {
     height: 44px;
     width: auto;
 }
