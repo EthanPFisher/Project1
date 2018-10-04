@@ -28,17 +28,17 @@
             <!-- Search Form -->
             <div class="row">
                 <!-- Location Input -->
-                <div class="input-field location col s12 m3 offset-m2">
+                <div class="input-field location col s12 m4 l3 offset-l2">
                     <i class="material-icons prefix" id="location-input-icon">location_searching</i>
                     <input placeholder="Location" id="location-input" type="text" class="validate" required>
                 </div>
                 <!-- Date Input -->
-                <div class="input-field col s12 m2">
+                <div class="input-field col s12 m4 l3">
                     <i class="material-icons prefix" id="date-icon">date_range</i>
                     <input id="date-input" type="date" class="unstyled datepicker validate" required>
                 </div>
                 <!-- Category Input -->
-                <div class="input-field col s12 m3 category">
+                <div class="input-field col s12 m5 l3 category">
                     <i class="material-icons prefix">add_circle_outline</i>
                     <select id="category-input">
                         <option value="" disabled selected><strong>Categories</strong> (optional)</option>
@@ -274,5 +274,7 @@
     <!--Algolia autocomplete JS library-->
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.11.0"></script>
     <script src="assets/javascript/autocomplete.js"></script>
+    <!--Google Map JS-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5lSGcPQkieKi9JEwoRUb2IqZ656nfPl0&callback=initMap" type="text/javascript"></script>
   </body>
 </html>
