@@ -46,13 +46,15 @@ $(document).ready(function(){
     $('select').formSelect();
     $('.modal').modal({
         onCloseEnd: function(){
-            if($(this).is("#map-modal")){
+            if($(".modal").is("#map-modal")){
                 $("#map-embed").empty();
                 directionsDisplay.set('directions', null);
                 $("#from-input").val("");
                 console.log("modal end");
             }
-            else{return;}
+            else{
+                console.log("else");
+                return;}
         }
     });
   });
