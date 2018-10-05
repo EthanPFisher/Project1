@@ -1,16 +1,18 @@
 # Project1
 
-About Entertain Me:
+---------------------------------
+
+#About Entertain Me:
 
 Entertain Me utilizes Google Maps and Eventful Apis in order to make an accessible and easy to use application that displays events of a variety of categories when supplied with a specified date and location.
 
 ---------------------------------
 
-How to use Entertain Me:
+#How to use Entertain Me:
 
 The Entertain Me user interface is very straight forward. Initially the user will be presented with three input fields; location, date, and category, followed by a Search button.
 
-The location field will take locations in a variety of formats. Acceptable formats include: "City", "City, State", "City, State, Country", and 5-digit postal codes. This field is required.
+The location field will take locations in a variety of formats. Acceptable formats include: "City", "City, State", "City, State, Country", and 5-digit postal codes. The location field has autocomplete functionality. This field is required.
 
 The date field accepts any dates that are not before the current date. Manually entered dates must be formatted as MM/DD/YYYY. There is also a built in calander view that can be accessed by clicking the calander icon next to the date field. This field is required.
 
@@ -20,15 +22,19 @@ With valid inputs for the location and date fields, clicking the Search button w
 
 ---------------------------------
 
-Built with:
+#Built with:
 
 Eventful Api: http://api.eventful.com/
 
 Google Maps Api: https://cloud.google.com/maps-platform/
 
+Materialize: https://materializecss.com/
+
+Algolia Places: https://community.algolia.com/places/
+
 ---------------------------------
 
-Contributers:
+#Contributers:
 
 Jover Lee: https://github.com/joverlee521
 
