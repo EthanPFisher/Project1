@@ -123,7 +123,7 @@ function displayPage(clicked){
 $(document).on('click', ".activator", function(){
     var thisTicketButton = $(this)[0].parentElement.parentElement.children[3].children[2].children[7];
     var id = $(this).attr("data-id");
-    var queryUrl = "http://api.eventful.com/json/events/get?app_key=9SPHrSHsCzcbp2ck&id=" + id;
+    var queryUrl = "https://api.eventful.com/json/events/get?app_key=9SPHrSHsCzcbp2ck&id=" + id;
     $.ajax({
         url: queryUrl,
         method: "GET", 
