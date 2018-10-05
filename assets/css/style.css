@@ -1,6 +1,6 @@
 body {
-    background-color: rgb(205, 248, 248);
-    color: #00B6FF;
+    background-color: rgb(149, 235, 235);
+    color: rgb(10, 140, 192);
 }
 /* Icon Styles */
 i {
@@ -19,11 +19,28 @@ nav ul{
 }
 /* Location Input styles */
 input#location-input, input#location-input:focus {
-    color: white;
+    color: #00FFFF;
+    text-shadow: 2px 2px 2px #000000;
+    font-weight: bold;
+}
+.location > .algolia-places {
+    margin-left: 3rem !important;
+    width: calc(100% - 3rem);
 }
 /* Date Input Styles */
+.datepicker-controls .select-month input{
+    width: 100px;
+}
 input#date-input{
     color: #00FFFF;
+    text-shadow: 2px 2px 2px #000000;
+    font-weight: bold;
+}
+input::-webkit-datetime-edit-day-field:focus,
+input::-webkit-datetime-edit-month-field:focus,
+input::-webkit-datetime-edit-year-field:focus{
+    background-color: white;
+    text-shadow: none;
 }
 #date-icon:hover {
     cursor: pointer;
@@ -36,7 +53,7 @@ input#date-input{
 /* Category Styles */
 .category input.select-dropdown.dropdown-trigger {
     color: #00FFFF;
-    text-shadow: 3px 3px 3px #000000;
+    text-shadow: 2px 2px 2px #000000;
     font-weight: bold;
 }
 /* Category Dropdown Styles */
@@ -47,14 +64,16 @@ ul.dropdown-content.select-dropdown li span {
 /* Webpage Title */
 .logo {
     color: white;
+    text-shadow: 5px 5px 5px black;
     font-family: "Dosis", sans-serif;
     font-weight: 800;
 }
 /* Webpage Banner */
 .banner {
-    background-image: url("../images/background.jpeg");
+    background-image: linear-gradient(70deg, #1A0090, #1F0052), url("../images/background.jpeg");
     background-size: cover;
     background-position: center;
+    background-blend-mode: screen;
     height: 65vh;
     padding: 50px 0;
 }
@@ -74,12 +93,54 @@ ul.dropdown-content.select-dropdown li span {
 .results {
     margin-top: 2rem;
 }
+/* Used to hide loading icon */
+.hide {
+    display: none;
+}
 .divider {
     background-color: #00B6FF;
+}
+/* Card Styles */
+.card {
+    height: 500px;
+}
+.card-image {
+    height: 295px;
+}
+.title-icon {
+    position: absolute;
+    bottom: 150px;
+    right: 5px;
+}
+.title-icon:hover {
+    cursor: pointer;
+}
+.card-content {
+    height: 150px;
+    overflow: scroll;
+}
+.event-tickets {
+    font-size: 14px;
+}
+.event-tickets.btn i {
+    font-size: 16px;
+}
+.card-action {
+    height: 55px;
 }
 /* Styles the Google Maps button on results cards */
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
     color: #039be5;
+}
+.event-details {
+    text-align: left;
+}
+.disabled {
+    pointer-events: none;
+}
+.pagination li.active a, .pagination li.active {
+    background-color: #039be5;
+
 }
 /* Hides results and footer display on load */
 .page-load.results, .page-load.page-footer{
@@ -109,13 +170,58 @@ ul.dropdown-content.select-dropdown li span {
   line-height: 17px     !important;
   font-weight: bold     !important;
 }
+
 /* Search/Directions Button Styles */
-#search-button, #get-directions-button {
+#search-button, #get-directions-button, .modal-close {
     color: white;
     font-weight: bold;
     background-color: #00B6FF;
 }
+
+.modal-close:hover {
+    color: #00B6FF;
+    background-color: white;
+}
+
+.close-button{
+    background-color: transparent;
+    color: gray;
+}
+.close-button:hover {
+    background-color: transparent;
+}
 /* Results Title Style */
 #results-title {
     font-family: "Dosis", sans-serif;
+}
+
+#input-validation-modal{
+    width: 450px;
+    height: 250px;
+}
+
+#map-embed {
+    height: 550px;
+    width: 450px;
+}
+#map-modal {
+    width: 1000px;
+    max-height: 100%;
+}
+
+#maps-error-modal {
+    width: 500px;
+    height: 250px;
+}
+
+#directions-list {
+    color: black;
+    overflow: scroll;
+    height: 220px;
+}
+
+@media only screen and (max-width: 992px) {
+    .pagination li.pages {
+        width: 5%;
+    }
 }
