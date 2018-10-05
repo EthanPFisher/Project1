@@ -46,7 +46,8 @@ $(document).ready(function(){
     $('select').formSelect();
     $('.modal').modal({
         onCloseEnd: function(){
-            if($(".modal").is("#map-modal")){
+            console.log($(this).attr("id"));
+            if($(this).attr("id") === "map-modal"){
                 $("#map-embed").empty();
                 directionsDisplay.set('directions', null);
                 $("#from-input").val("");
