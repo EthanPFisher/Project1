@@ -193,7 +193,7 @@ $(document).ready(function () {
         }
         $("#title-location").text($('#location-input').val().trim());
         $("#title-date").text(moment($("#date-input").val(), "YYYY-MM-DD").format("L"));
-        var queryUrl = 'http://api.eventful.com/json/events/search?sort_order=popularity&image_sizes=large&page_size=81&app_key=' + key + location + category + date
+        var queryUrl = 'https://api.eventful.com/json/events/search?sort_order=popularity&image_sizes=large&page_size=81&app_key=' + key + location + category + date
 
         // console.log(queryUrl)
 
