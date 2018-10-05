@@ -16,7 +16,7 @@ var directionsService = new google.maps.DirectionsService;
 var directionsDisplay = new google.maps.DirectionsRenderer;
 var origin;
 var destination;
-// var flag = false;
+var flag = false;
 
 // declare apiKey variable
 apiKey = "AIzaSyB5lSGcPQkieKi9JEwoRUb2IqZ656nfPl0"
@@ -137,6 +137,9 @@ $(document).on("click", ".map-button", function () {
     console.log(thisLong);
     initMap(thisLat, thisLong);
     transportMethod = 'DRIVING';
+    flag = false;
+    $(".nav-icons").parents("li").removeClass("active");
+    $("#DRIVING").parents("li").addClass("active");
 })
 
 $("#google-form").on('submit', function (event) {
@@ -150,17 +153,17 @@ $("#google-form").on('submit', function (event) {
     }
     displayDirections();
     calculateAndDisplayRoute(directionsService, directionsDisplay);
+    flag = true;
 })
 
-$(".material-icons").on('click', function () {
+$(".nav-icons").on('click', function () {
     // flag = true;
     transportMethod = $(this).attr('id');
-    console.log(transportMethod);
-})
-
-
-$(".nav-icons").on('click',function(){
-    console.log('test')
     $(".nav-icons").parents("li").removeClass('active')
     $(this).parents("li").addClass('active');
+    if(flag){
+        displayDirections();
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+    }
+    console.log(transportMethod);
 })
