@@ -175,6 +175,7 @@ $(document).ready(function () {
     var category = ''
 
     $('#search-button').on('click', function () {
+        $("#search-button").css("pointer-events", "none");
         $("#results-display").empty();
         $(".pages").remove();
         if(!inputValidation("#location-input") || !inputValidation("#date-input")){
@@ -205,6 +206,7 @@ $(document).ready(function () {
             },
             dataType: 'jsonp',
         }).then(function (res) {
+            $("#search-button").css("pointer-events", "auto");
             $("#search-loader").addClass("hide");
             if(res.events === null){
                 console.log("no events");
