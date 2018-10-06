@@ -16,12 +16,14 @@ function inputValidation(data){
         $("#location-validation").css("display", "auto");
         $("#date-validation").css("display", "none");
         $("#input-validation-modal").modal("open");
+        $("#search-button").css("pointer-events", "auto");
         return false;
     }
     else if(!input[0].checkValidity() && data === "#date-input"){
         $("#location-validation").css("display", "none");
         $("#date-validation").css("display", "auto");
         $("#input-validation-modal").modal("open");
+        $("#search-button").css("pointer-events", "auto");
         return false;
     }
     else{
